@@ -1,0 +1,125 @@
+.recommend-container {
+  width: 750px;
+  height: 954px;
+  background: #fff;
+  border-radius: 24px;
+  margin-top: 24px;
+
+  .recommend-title-container {
+    width: 750px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    .recommend-title-icon {
+      width: 6px;
+      height: 30px;
+      margin-left: 36px;
+      background-image: url("https://m.360buyimg.com/img/jfs/t1/123772/10/11048/503/5f48b028Eb7e43077/7acbc9f652d06310.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .recommend-title {
+      color: #262626;
+      font-size: 30px;
+      font-weight: bold;
+      padding-left: 10px;
+    }
+  }
+
+  .recommend-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    .left-clear {
+      padding-left: 30px;
+    }
+
+    .right-clear {
+      padding-right: 20px;
+    }
+
+    .recommend-info {
+      display: flex;
+      flex-direction: column;
+
+      .goods-wrap {
+        display: flex;
+        flex-direction: column;
+        // flex: 1;
+        width: 220px;
+        height: 390px;
+        padding-bottom: 20px;
+        margin: 5px 4px;
+
+        .goods-img-container {
+          width: 220px;
+          height: 220px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-bottom: 10px;
+
+          .goods-img {
+            display: block;
+            width: 210px;
+            height: 210px;
+          }
+        }
+
+        .goods-info {
+          width: 200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex: 1;
+          .goods-name {
+            font-size: 24px;
+            color: #262626;
+            overflow: hidden;
+            display: -webkit-box;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+
+            /*! autoprefixer: ignore next */
+            -webkit-box-orient: vertical;
+          }
+
+          .goods-price-ext-info {
+            .goods-price {
+              color: #262626;
+              font-weight: bold;
+              padding-top: 20px;
+              display: flex;
+              align-items: baseline;
+              flex-direction: row;
+
+              .price-flag {
+                font-size: 20px;
+              }
+
+              .price {
+                font-size: 26px;
+              }
+            }
+
+            .goods-follow {
+              color: #878888;
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .recommend-main::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+  }
+}

@@ -1,0 +1,88 @@
+.layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.Confirm {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 580px;
+  height: 420px;
+  margin: auto;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 2;
+}
+
+.Confirm-txt {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.Confirm-txt1 {
+  display: flex;
+  font-size: 32px;
+  padding-bottom: 10px;
+  width: 90%;
+  justify-content: center;
+}
+
+.Confirm-txt2 {
+  display: flex;
+  font-size: 28px;
+}
+
+.Confirm-txt-ext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: #f00;
+  padding-bottom: 30px;
+}
+
+.Confirm-btn {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+.Confirm-btn-left {
+  height: 98px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Confirm-btn-right {
+  height: 98px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 105, 140);
+}

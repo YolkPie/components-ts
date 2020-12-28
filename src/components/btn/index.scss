@@ -1,0 +1,81 @@
+.btn-container {
+  width: 750px;
+  height: 100px;
+  position: fixed;
+  margin: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  .left {
+    width: 516px;
+    height: 100px;
+    line-height: 100px;
+    background: rgba(44, 44, 44, 1);
+    display: flex;
+    flex-direction: row;
+    padding-left: 34px;
+
+    .price-txt {
+      color: #fefefe;
+      font-size: 28px;
+      padding-right: 12px;
+    }
+
+    .price-flag {
+      color: #fff;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .price {
+      color: #fff;
+      font-size: 44px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      .decimal {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .right {
+    width: 234px;
+    height: 100px;
+    background: linear-gradient(
+      270deg,
+      rgba(242, 20, 12, 1) 0%,
+      rgba(255, 108, 51, 1) 100%
+    );
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    font-weight: bold;
+  }
+
+  .right.disabled {
+    background: rgba(226, 226, 226, 1);
+  }
+}
+
+.off-btn {
+  width: 750px;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  background: rgba(222, 222, 222, 1);
+  font-size: 30px;
+  color: #ffffff;
+  position: fixed;
+  margin: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}

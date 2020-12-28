@@ -1,0 +1,29 @@
+.swiper {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.no-scroll-bar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.swiper-wrap {
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.more-container {
+  width: 68px;
+  display: flex;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3px;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+}

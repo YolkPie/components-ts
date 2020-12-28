@@ -1,0 +1,92 @@
+.belt-container {
+  position: relative;
+  z-index: 1;
+  width: 750px;
+  height: 106px;
+  background: linear-gradient(
+    270deg,
+    rgba(242, 20, 12, 1) 0%,
+    rgba(255, 108, 51, 1) 100%
+  );
+  border-top-right-radius: 11px;
+  display: flex;
+  align-items: baseline;
+  margin-top: -8px;
+
+  .price-wrap {
+    height: 106px;
+    display: flex;
+    align-items: baseline;
+    padding-left: 36px;
+
+    .price-container {
+      height: 106px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .price-txt {
+        color: #fff;
+        font-size: 32px;
+        padding-right: 2px;
+      }
+      .price-val {
+        display: flex;
+        align-items: baseline;
+        .price-flag {
+          color: #fff;
+          font-size: 32px;
+          font-weight: bold;
+          padding: 0 5px;
+        }
+
+        .price {
+          color: #fff;
+          font-size: 44px;
+          font-weight: bold;
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+
+          .decimal {
+            font-size: 36px;
+          }
+        }
+      }
+    }
+
+    .reference {
+      height: 106px;
+      display: flex;
+      align-items: center;
+      padding-left: 24px;
+      color: #fff;
+      font-size: 24px;
+      .reference-price-txt {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .reference-price {
+        color: rgba(255, 255, 255, 0.7);
+        padding-left: 6px;
+      }
+    }
+  }
+}
+
+.off {
+  width: 750px;
+  height: 106px;
+  line-height: 106px;
+  text-align: center;
+  border-top-right-radius: 11px;
+  background-color: #9c9c9c;
+  background-image: url("https://m.360buyimg.com/img/jfs/t1/132077/26/15794/20299/5fabcb2eEe817541c/406684250b0a1937.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 1;
+  width: 750px;
+  margin-top: -8px;
+}

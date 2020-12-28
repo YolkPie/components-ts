@@ -1,0 +1,53 @@
+.attribute-container {
+  font-size: 26px;
+  color: rgb(153, 153, 153);
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: rgb(208, 208, 208);
+  border-width: 1px;
+  width: 690px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+
+  .attribute {
+    width: 690px;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-width: 1px 0 0;
+    border-color: rgb(208, 208, 208);
+
+    .left {
+      width: 290px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-style: solid;
+      border-width: 0 1px 0 0;
+      border-color: rgb(208, 208, 208);
+    }
+
+    .left.base-info {
+      border-width: 0;
+      color: rgb(102, 102, 102);
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      height: 80px;
+      padding-left: 15px;
+      border-style: solid;
+      border-width: 0;
+      border-color: rgb(208, 208, 208);
+    }
+  }
+
+  .attribute:first-child {
+    border-width: 0 0 0;
+  }
+}

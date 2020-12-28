@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+      "outDir": "dist/build/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "esnext",
+      "target": "esnext",
+      "jsx": "react",
+      "typeRoots": ["./@types", "./node_modules/@types"], 
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "suppressImplicitAnyIndexErrors": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "config",
+    "public"
+  ]
+}

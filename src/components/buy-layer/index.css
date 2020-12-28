@@ -1,0 +1,144 @@
+.Buylayer_container {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  left: 0;
+  width: 750px;
+  max-height: 800px;
+}
+
+.Buylayer_top {
+  position: relative;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Buylayer_close {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  bottom: 0;
+  width: 27px;
+  height: 27px;
+  margin: auto;
+  background-image: url(//m.360buyimg.com/img/jfs/t12895/99/2618201646/1365/8d2ecb01/5a4509a4N166ae1db.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+.Buylayer_bottom {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding: 25px 0;
+}
+
+.Buylayer_goods_img {
+  width: 180px;
+  height: 180px;
+}
+
+.Image {
+  width: 100%;
+  height: 100%;
+}
+
+.Buylayer_goods_info {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Buylayer_goods_name {
+  font-size: 28px;
+  display: flex;
+  flex: 2;
+}
+
+.Buylayer_market_price {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  text-decoration: line-through;
+  font-size: 20px;
+  color: rgb(137, 137, 137);
+}
+.Buylayer_jd_price {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.Buylayer_jd_price_val {
+  font-size: 32px;
+  color: #ff0000;
+}
+
+.Buylayer_unit {
+  font-size: 20px;
+  color: rgb(137, 137, 137);
+}
+
+.Buylayer_goods_limit {
+  position: absolute;
+  right: 20px;
+  bottom: 60px;
+  color: rgb(137, 137, 137);
+  font-size: 20px;
+}
+
+.Buylayer_operate {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+}
+
+.subtract {
+  width: 45px;
+  height: 45px;
+  background-image: url(//m.360buyimg.com/img/jfs/t1/126610/7/10090/1411/5f3de6c1Ea23961e5/68a42ad8ecc1f888.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 34px;
+}
+
+.subtract_active {
+  background-image: url(//m.360buyimg.com/img/jfs/t1/124149/22/10103/1460/5f3de6cdE0eaa9379/af5603f18b846a39.png);
+}
+
+.input {
+  width: 76px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border: 0;
+  outline: 0;
+  font-size: 24px;
+  color: rgb(37, 37, 37);
+  background: rgb(247, 247, 247);
+}
+
+.add {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  background-image: url(//m.360buyimg.com/img/jfs/t1/128178/37/10042/1572/5f3de6afE241d413f/6ac5d50de36d35f8.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 34px;
+}
+
+.add_active {
+  background-image: url(//m.360buyimg.com/img/jfs/t1/134854/6/7479/1616/5f3de6a0E2a91659b/8200da1da299ebcf.png);
+}

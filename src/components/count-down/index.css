@@ -1,0 +1,44 @@
+.count-down {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "JDZhengHei-01-Regular", "PingFang SC", "Hiragino Sans GB",
+    "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.count-down .value {
+  width: 60px;
+  height: 52px;
+  background: rgba(123, 34, 34, 0.15);
+  text-align: center;
+  line-height: 52px;
+  color: #fff;
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count-down .split {
+  color: rgba(75, 22, 22, 0.2);
+  margin: 0 16px;
+  font-weight: 500;
+  margin-top: -10px;
+}
+
+.count-down-tip {
+  display: inline-block;
+}
+
+.count-down-tip .dark {
+  width: 46px;
+  height: 48px;
+  line-height: 48px;
+  background: #fff;
+  color: rgb(169, 100, 90);
+  margin: 0 6px;
+  padding: 0 6px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 28px;
+}
