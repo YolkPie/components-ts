@@ -1,4 +1,4 @@
-declare module '@jd/react-ts-m/components' {
+declare module '@react-ts-m/components' {
   export interface Button {}
 }
 declare module 'Button';
