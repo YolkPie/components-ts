@@ -5,8 +5,8 @@ const shell = require('shelljs')
 const initPackage = async env => {
   const package = await packageJson(
     env === '线上'
-        ? '@react-ts-m/components'
-        : '@react-ts-m/pcomponents',
+        ? '@jd/react-ts-m/components'
+        : '@jd/react-ts-m/pcomponents',
     {
       registryUrl: 'http://registry.m.jd.com'
     }
@@ -14,8 +14,8 @@ const initPackage = async env => {
   if (!package) package = JSON.parse(fs.readFileSync('package.json'))
   package.name =
     env === '线上'
-        ? '@react-ts-m/components'
-        : '@react-ts-m/pcomponents'
+        ? '@jd/react-ts-m/components'
+        : '@jd/react-ts-m/pcomponents'
   package.description =
     env === '线上'
         ? 'PAIMAIUI组件库'

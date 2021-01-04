@@ -1,5 +1,5 @@
 {
-  "name": "@react-ts-m/components",
+  "name": "@jd/react-ts-m/components",
   "version": "0.0.1",
   "description": "UI组件库",
   "main": "build/index.js",
