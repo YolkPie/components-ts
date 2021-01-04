@@ -3,13 +3,13 @@
 ### 安装
 
 ```
-jnpm install @jd/react-ts-m/components
+jnpm install @react-ts-m/components
 ```
 
 ### 使用
 
 ```
-import { Button } from '@jd/react-ts-m/components'
+import { Button } from '@react-ts-m/components'
 ```
 
 ### 组件
