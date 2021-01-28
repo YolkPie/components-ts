@@ -1,0 +1,1 @@
+sudo /export/servers/nginx/sbin/nginx -QUIT

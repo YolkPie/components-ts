@@ -10,6 +10,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "build": "npm run build-storybook",
     "bundle:all": "rm -rf dist && rollup -c --compact",
     "publish": "NODE_ENV=production node bin/publish.js",
     "link": "NODE_ENV=production node bin/link.js",

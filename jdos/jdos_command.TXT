@@ -1,0 +1,8 @@
+# 复制待部署的静态资源，直接放到$BUILD下面
+cp -r storybook-static/ $BUILD/
+# 创建$BUILD/bin/目录
+mkdir -p $BUILD/bin/
+# 复制bin/start.sh stop.sh到$BUILD
+cp jdos/start.sh $BUILD/bin/
+cp jdos/stop.sh $BUILD/bin/
+cp jdos/nginx.conf $BUILD
