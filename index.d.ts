@@ -1,4 +1,4 @@
-declare module '@react-ts-m/components' {
+declare module '@paimai/components-ts' {
   export interface Button {}
 }
 declare module 'Button';

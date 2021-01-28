@@ -1,15 +1,28 @@
 ## PAIMAI UI 组件库
 
-### 安装
+### 本地预览
 
+1.首先执行，安装依赖命令
 ```
-jnpm install @react-ts-m/components
+npm install 
+```
+2.安装完成后执行
+
+ ```
+ npm run storybook
+ ```
+
+3.本地可以看预览后，按照已有组建封装规则，封装组建，并且创建.stories.tsx
+
+### 组件使用步骤
+```
+jnpm install @paimai/components-ts
 ```
 
 ### 使用
 
 ```
-import { Button } from '@react-ts-m/components'
+import { Button } from '@paimai/components-ts'
 ```
 
 ### 组件
