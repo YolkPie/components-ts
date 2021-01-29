@@ -1,0 +1,39 @@
+language: node_js
+node_js:
+  - lts/*
+cache:
+  directories:
+    - node_modules
+install:
+  - npm install
+script:
+  - npm run build-storybook
+after_success:
+  - git config --global user.name "${U_NAME}"
+  - git config --global user.email "${U_EMAIL}"
+  - git clone "https://${GH_TOKEN}@github.com/YolkPie/components-ts.git"
+  - if [! -d components-ts/storybook-static]; then
+  - mkdir components-ts/storybook-static
+  - fi
+  - cp -rf storybook-static/* components-ts/storybook-static
+  - cd ./components-ts
+  - git add .
+  - git status
+  - git commit -m 'travis-ci auto build components-ts'
+  - git push origin master
+  - git push origin `git subtree split --prefix=storybook-static master`:gh-pages --force
+
+  - cd ../
+  - rm -rf components-ts
+  - git clone "https://${U_NAME2}:${CO_TOKEN}@e.coding.net/yolkpie/components/components-ts.git"
+  - if [! -d components-ts/storybook-static]; then
+  - mkdir components-ts/storybook-static
+  - fi
+  - cp -rf storybook-static/* components-ts/storybook-static
+  - cd ./components-ts
+  - git add .
+  - git commit -m 'travis-ci auto build components-ts'
+  - git push origin master
+branches:
+  only:
+    - master
