@@ -22,7 +22,7 @@ after_success:
   - git status
   - git commit -m 'travis-ci auto build components-ts'
   - git push origin main
-  - git push origin `git subtree split --prefix=storybook-static master`:gh-pages --force
+  - git push origin `git subtree split --prefix=storybook-static main`:gh-pages --force
 
   - cd ../
   - rm -rf components-ts
