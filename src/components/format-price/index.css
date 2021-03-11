@@ -1,0 +1,12 @@
+.format_price {
+  color: #ff0000;
+}
+.price_integer {
+  font-size: 34px;
+}
+.price_decimal_dot {
+  font-size: 28px;
+}
+.price_decimal {
+  font-size: 28px;
+}
