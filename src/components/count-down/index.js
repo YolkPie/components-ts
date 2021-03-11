@@ -51,6 +51,10 @@ export default class CountDown extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    this.timerId && clearInterval(this.timerId);
+  }
+
   startCountDown() {
     clearInterval(this.timerId);
     this.timerId = setInterval(() => {
