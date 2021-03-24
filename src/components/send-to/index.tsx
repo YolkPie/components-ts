@@ -5,6 +5,10 @@ interface SendToProps {
   addrText:string
 }
 
+const gotoAddr=()=>{
+  alert("进入地址页")
+}
+
 const SendTo: React.FC<SendToProps> = ({
   addrText
 }) => {
@@ -15,7 +19,12 @@ const SendTo: React.FC<SendToProps> = ({
         <span className={css.address_info}>
           {addrText}
         </span>
-        <span className={css.address_img}></span>
+        <span 
+          className={css.address_img} 
+          onClick={()=>{
+            gotoAddr()
+          }}
+        ></span>
       </div>
     </div>
   );
