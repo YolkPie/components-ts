@@ -42,6 +42,22 @@
   left: 40px;
   opacity: 0.5;
 }
+.clear_input_icon {
+  width: 50px;
+  height: 64px;
+  background-image: url(//m.360buyimg.com/img/jfs/t1/159940/28/9771/1257/6040c261E09f8d6b3/41bfc85467a71351.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 36px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 620px;
+}
+.clear_input_icon.has_btn {
+  left: 540px;
+}
 .search_btn {
   font-size: 28px;
   color: rgb(37, 37, 37);
