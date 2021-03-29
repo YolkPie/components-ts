@@ -1,0 +1,30 @@
+.icon__ul {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.icon__li {
+  padding: 4px 10px;
+  margin: 5px;
+  border: 1px solid red;
+}
+.icon__nowrap {
+  height: 65px;
+  padding: 10px 0;
+  overflow: hidden;
+}
+.icon__li_nowrap {
+  float: left;
+  padding: 4px 10px;
+  margin: 5px;
+  line-height: 50px;
+  border: 1px solid red;
+}
+.icon__text {
+  line-height: normal;
+  text-align: center;
+}
+.icon__clear {
+  clear: both;
+}

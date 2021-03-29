@@ -1,0 +1,29 @@
+.icon__ul {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-size: 0;
+}
+.icon__li {
+  font-size: 28px;
+  padding: 4px 15px;
+  margin: 15px;
+  background-color: #fff;
+  border: 1px solid #a7a7a7;
+}
+.icon__active {
+  font-size: 28px;
+  color: #fff;
+  padding: 4px 15px;
+  margin: 15px;
+  border: 1px solid #cc2729;
+  background-color: #cc2729;
+}
+.icon__text {
+  line-height: normal;
+  text-align: center;
+}
+.icon__clear {
+  clear: both;
+}
