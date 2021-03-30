@@ -1,4 +1,4 @@
 ## 盒子组件
 - 1. 可配置参数为：标题、右侧文字、右侧图标、不传入默认没有，具体使用示例可参考index.stories.tsx文件
 - 2. 组件已经给出默认样式，如果需要自己控制样式，通过自定义class，然后在自己的文件里面写样式，记得增大它的权重。
-- 3. moreIconObj: iconObj,titleText: string,classMySelf: string,callback?:()=>{}
+- 3. rightText: string , titleText: string,classMySelf: string,callback?:()=>{}

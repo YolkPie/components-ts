@@ -8,13 +8,14 @@ import './index.scss'
 
 storiesOf("单品页组件|TitleContainer", module)
   .addDecorator(withKnobs)
-  .add("标签", () => {
+  .add("内容盒子", () => {
     const titleText = '我是传入的标题';
-    const moreIconObj = {"text":'查看更多',"id":1111, "iconImg":'https://img11.360buyimg.com/imagetools/jfs/t1/129015/4/9454/511/5f326d1dE23f1747b/c8f5996a8badbdcd.png'}
-    const myfunction = function(){
-        alert(JSON.stringify(moreIconObj))
+    const rightText = '查看更多'
+    const iconImg = 'https://img11.360buyimg.com/imagetools/jfs/t1/129015/4/9454/511/5f326d1dE23f1747b/c8f5996a8badbdcd.png'
+    const _callBack = function(){
+        alert(titleText + rightText)
     }
-    return <TitleContainer titleText={titleText} moreIconObj = {moreIconObj} callback = {myfunction}>
-         <div>插槽内容</div>
-    </TitleContainer>
+    return <TitleContainer titleText={titleText} iconImg = {iconImg} rightText = {rightText} callback = {_callBack}>
+              <div>插槽内容</div>
+          </TitleContainer>
   });
