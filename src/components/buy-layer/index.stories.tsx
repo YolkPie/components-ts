@@ -14,8 +14,7 @@ storiesOf("UI组件|BuyLayer", module)
         {
           goodsName:
             "【中原收藏】收淘青铜白鸟朝凤熏香炉规格32*13cm重1990克",
-          imgUrl:
-            "https://img30.360buyimg.com/popactivity/s400x400_jfs/t1/148703/38/3357/43727/5f17d90bEf8c0b5bc/9af75dd94b1d2b97.jpg!q70",
+          imgUrl: "//media.istockphoto.com/photos/stack-of-books-on-a-shelf-multicolored-book-spines-picture-id507071472?s=612x612",
           limit: "活动期间总限购1个",
           unit: "/个",
           marketPrice: "1999.00",

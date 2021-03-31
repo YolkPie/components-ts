@@ -18,7 +18,8 @@ export default class BuyLayer extends Component<BuyLayerProps> {
                   <img
                     className={styles.Image}
                     alt={val.goodsName}
-                    src={filterImg(val.imgUrl)}
+                    // src={filterImg(val.imgUrl)}
+                    src={val.imgUrl}
                   />
                 </div>
                 <div className={styles.Buylayer_goods_info}>
