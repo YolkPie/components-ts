@@ -20,11 +20,11 @@ class IconLabel extends Component<Props> {
   render () {
     const { labelList, customerClass, nowrap } = this.props
     return (
-        <div className={nowrap ? styles.icon__nowrap : styles.icon__ul}>
+        <div className={customerClass + ' ' + nowrap ? styles.icon__nowrap : styles.icon__ul}>
            { labelList && labelList.length && (
               labelList.map((infoitem:any, index:number) => {
                   return (
-                      <div className={nowrap ? styles.icon__li_nowrap : styles.icon__li + ' ' + customerClass} key={index}>
+                      <div className={nowrap ? styles.icon__li_nowrap : styles.icon__li } key={index}>
                           <span className={styles.icon__text}>{infoitem.name ? infoitem.name : infoitem}</span>
                       </div>
                   )

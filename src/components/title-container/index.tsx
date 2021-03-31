@@ -9,20 +9,20 @@ interface Props {
   href?: string,
   rightText?: string,
   titleText?: string,
-  classMySelf: string,
+  customerClass: string,
   callback?:()=>{}
 }
 
 class TitleContainer extends Component<Props> {
   render () {
-    const { titleText, rightText, children, classMySelf, iconImg, callback} = this.props
+    const { titleText, rightText, children, customerClass, iconImg, callback} = this.props
     return (
-        <div className={styles.container + ' ' + classMySelf}>
+        <div className={styles.container + ' ' + customerClass}>
             <div className={styles.container__title}>
-                <div className={styles.container__title_text}>{titleText}</div>
+                <div className={styles.container__title__text}>{titleText}</div>
                 <div className={styles.container__icon} onClick={callback}>
-                  <span className={styles.container__icon_text}>{rightText}</span>
-                  <img className={styles.container__icon_img} src={iconImg} />
+                  <span className={styles.container__icon__text}>{rightText}</span>
+                  <img className={styles.container__icon__img} src={iconImg} />
                 </div>
             </div>
             <div className={styles.container__con}>

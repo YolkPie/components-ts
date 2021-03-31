@@ -7,22 +7,22 @@ import styles from './index.scss'
 interface labelItem {
   name: string,
   id: number,
+  selected?: boolean,
   [propName: string]: string | number | boolean;
 }
 interface Props {
   labelList: labelItem[],
   customerClass: string,
-  chooseClick?:(item:any)=>{}
+  callBack?:(item:labelItem) => {}
 }
 
 interface IState {
-  myChooseList: any[],
-  formatList: any[]
+  formatList: labelItem[]
 }
 
 class ChooseActive extends Component<Props, IState> {
 
-  initFormat = () => {
+  _initFormat = () => {
     const { labelList } = this.props
     labelList.map((item) => {
       if(!item.selected){
@@ -33,11 +33,11 @@ class ChooseActive extends Component<Props, IState> {
   }
 
   state: IState = {
-    myChooseList : [],
-    formatList: this.initFormat()
+    formatList: this._initFormat()
   };
   
-  chooseClick = (item:any) => {
+  _chooseClick = (item:labelItem) => {
+    const { callBack } = this.props
     let newFormatList = JSON.parse(JSON.stringify(this.state.formatList)) 
     for(let i=0; i<this.state.formatList.length; i++){
       if(newFormatList[i].id === item.id){
@@ -46,19 +46,13 @@ class ChooseActive extends Component<Props, IState> {
         }else{
           newFormatList[i].selected = true
         }
-        break;
+        break
       }
     }
     this.setState({
       formatList: newFormatList
     },() => {
-      let myChooseList = []
-      for(let j=0; j<this.state.formatList.length; j++){
-        if(this.state.formatList[j].selected){
-          myChooseList.push(this.state.formatList[j])
-        }
-      }
-      alert(JSON.stringify(myChooseList))
+      callBack(newFormatList)
     })    
   }
 
@@ -66,11 +60,11 @@ class ChooseActive extends Component<Props, IState> {
     const { customerClass } = this.props
     const { formatList } = this.state
     return (
-        <div className={styles.icon__ul}>
+        <div className={customerClass + ' ' + styles.icon__ul}>
            { formatList && formatList.length && (
               formatList.map((infoitem:labelItem, index:number) => {
                   return (
-                      <div className={customerClass + ' ' + (infoitem.selected ? styles.icon__active : styles.icon__li)} key={index} onClick={() => this.chooseClick(infoitem)}>
+                      <div className={infoitem.selected ? styles.icon__active : styles.icon__li} key={index} onClick={() => this._chooseClick(infoitem)}>
                           <span className={styles.icon__text}>{infoitem.name ? infoitem.name : infoitem}</span>
                       </div>
                   )
