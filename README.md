@@ -1,5 +1,5 @@
 ## PAIMAI UI 组件库
-如果你是在https://github.com/YolkPie/components-ts看到这个文档，就要注意你来的地方对不对啦！不要在直接https://github.com/YolkPie/components-ts更新代码，请移驾到https://git.xxx.com/auction-fe/react-ts-component-m，开始你的组件封装吧~~
+如果你是在 https://github.com/YolkPie/components-ts 看到这个文档，就要注意你来的地方对不对啦！不要直接在 https://github.com/YolkPie/components-ts 更新代码，请移驾到 https://git.xxx.com/auction-fe/react-ts-component-m，开始你的组件封装吧~~
 该项目使用了travis-ci进行了预览页面的自动构建，因此代码需要同步到github。
 代码克隆到本地之后，需要先增加github源：
 
