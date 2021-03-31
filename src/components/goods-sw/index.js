@@ -39,7 +39,8 @@ export default class GoodsSw extends Component {
                 <div key={i.toString()} styleName="swiper-item">
                   <img
                     alt=""
-                    src={filterImg(val.path)}
+                    src={val.path}
+                    // src={filterImg(val.path)}
                     styleName="swiper-img-item"
                     style={{ width: px2vw(750) }}
                     // style={{ width: px2vw(750), height: px2vw(750) }}

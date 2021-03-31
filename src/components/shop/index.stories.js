@@ -10,7 +10,7 @@ storiesOf("单品页组件|Shop", module)
   .add("商品店铺", () => {
     const shopMessage = {
       shopLogo:
-        "https://img30.360buyimg.com/popshop/jfs/t24358/151/75499215/45473/6eddcc1d/5b243082Nc0299a91.jpg!q70.dpg",
+        "//cdn.pixabay.com/photo/2014/12/08/14/23/pocket-watch-560937__340.jpg",
       shopName: "铭盛堂奢侈品",
       shopFollowCount: "199",
       hisProductCount: 30254,

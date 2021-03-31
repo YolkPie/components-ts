@@ -13,6 +13,10 @@
 .empty_page_img {
   width: 293px;
   height: 174px;
+  background-image: url(./images/empty.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .empty_page_txt {
   margin-top: 30px;

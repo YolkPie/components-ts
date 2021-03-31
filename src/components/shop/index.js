@@ -43,7 +43,8 @@ export default class Shop extends Component {
               <div styleName="shop-logo-container">
                 <img
                   styleName="shop-logo"
-                  src={filterImg(shopMessage.shopLogo)}
+                  // src={filterImg(shopMessage.shopLogo)}
+                  src={shopMessage.shopLogo}
                   alt=""
                 />
               </div>
