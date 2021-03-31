@@ -31,7 +31,7 @@
 .search_input_icon {
   width: 30px;
   height: 30px;
-  background-image: url("//img13.360buyimg.com/imagetools/jfs/t1/139702/8/5058/3118/5f326e3dE657ff9ed/fe299ca9c1e26ecc.png");
+  background-image: url("./images/search.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -45,7 +45,7 @@
 .clear_input_icon {
   width: 50px;
   height: 64px;
-  background-image: url(//m.360buyimg.com/img/jfs/t1/159940/28/9771/1257/6040c261E09f8d6b3/41bfc85467a71351.png);
+  background-image: url(./images/clear.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 36px;
