@@ -5,3 +5,4 @@ export const detailSectionContent: string;
 export const detailSectionShadow: string;
 export const detailSectionFold: string;
 export const detailSectionBtn: string;
+export const detailSectionArrow: string;

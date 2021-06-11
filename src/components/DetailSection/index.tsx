@@ -67,7 +67,7 @@ const DetailSection: React.FC<IProps> = ({
       {
         isFolding && (
           <div className={styles.detailSectionFold}>
-            <button onClick={() => _unfoldHandle()} className={styles.detailSectionBtn}>{foldText || '展开全部'}</button>
+            <button onClick={() => _unfoldHandle()} className={styles.detailSectionBtn}>{foldText || '展开全部'}<i className={styles.detailSectionArrow} /></button>
           </div>
         )
       }

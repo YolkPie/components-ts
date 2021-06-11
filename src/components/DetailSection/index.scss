@@ -45,14 +45,13 @@
   margin-top: 24px;
   background: #fff;
   outline: none;
-  &::after {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    content: "";
-    background: url("https://img12.360buyimg.com/imagetools/jfs/t1/185984/8/6642/506/60b47674Eb23a3c46/6b01a7cdd7c644a9.png")
-      no-repeat;
-    background-size: 100%;
-    margin-left: 8px;
-  }
+}
+.detailSectionArrow {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("https://img12.360buyimg.com/imagetools/jfs/t1/185984/8/6642/506/60b47674Eb23a3c46/6b01a7cdd7c644a9.png")
+    no-repeat;
+  background-size: 100%;
+  margin-left: 8px;
 }
