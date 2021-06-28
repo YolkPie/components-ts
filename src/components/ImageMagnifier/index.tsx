@@ -107,7 +107,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
             }
         }
     };
-    constructor(props) {
+    constructor(props: ISProps) {
         super(props);
     }
 
@@ -121,7 +121,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
     }
 
     // props 变化时更新
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: ISProps) {
         this.updataImg(nextProps);
     }
 
@@ -141,7 +141,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
         });
     };
     // 鼠标移动
-    mouseMove = event => {
+    mouseMove = (event: React.MouseEvent<HTMLImageElement>) => {
         let e = event.nativeEvent;
         this.calculationBlock(e.offsetX, e.offsetY);
     };
@@ -195,7 +195,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
     }
 
     // 更新图片
-    updataImg(props) {
+    updataImg(props: ISProps) {
         this.setState({
             minImg: props.minImg,
             maxImg: props.maxImg
@@ -203,7 +203,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
     }
 
     // 图片加载情况
-    handleImageLoaded(e) {
+    handleImageLoaded() {
         this.setState({ imgLoad: true });
     }
 
