@@ -6,12 +6,8 @@ import { withKnobs } from "@storybook/addon-knobs";
 import ImageMagnifier from "./index.tsx";
 import viewData from './mock.ts'
 
-storiesOf("图片查看组件|Flow", module)
+storiesOf("图片查看组件", module)
   .addDecorator(withKnobs)
-  .add("商品底部按钮", () => {
-    const selectIndex = 0
-    const SetSelectIndex = (index: number) => {
-      console.log(index)
-    }
+  .add("图片查看组件", () => {
     return <ImageMagnifier minImg={viewData[0].skuImg} maxImg={viewData[0].skuImg} />;
   });
