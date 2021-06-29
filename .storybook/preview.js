@@ -26,7 +26,7 @@ addParameters({
     theme: create({
       base: 'light',
       brandTitle: 'PAIMAI UI',
-      brandUrl: 'https://zpsy.xxx.com/',
+      brandUrl: 'https://zpsy.jd.com/',
       gridCellSize: 12
     }),
     hierarchySeparator: /\/|\./,
