@@ -20,31 +20,34 @@ interface IState {
   modules: ModuleItem[],
   currentTab: string | number,
 }
-
+let moduleWrap = React.createRef<HTMLDivElement>()
+let navigationBar = React.createRef<NavigationTab>()
 class ScrollTabview extends Component<IProps, IState> {
 
-  state: IState = {
-    modules: [],
-    currentTab: ''
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      modules: [],
+      currentTab: ''
+    }
   }
 
-  private moduleWrap = React.createRef<HTMLDivElement>()
-  private navigationBar = React.createRef<NavigationTab>()
+
 
   _onTabChange(value: string | number) {
-    if (!this.moduleWrap) return
-    const scrollTop = this.moduleWrap.current.scrollTop
-    const modules = this.moduleWrap.current.querySelectorAll('[data-value]')
+    if (!moduleWrap) return
+    const scrollTop = moduleWrap.current.scrollTop
+    const modules = moduleWrap.current.querySelectorAll('[data-value]')
     const {
       top: wrapTop
-    } = this.moduleWrap.current.getBoundingClientRect()
+    } = moduleWrap.current.getBoundingClientRect()
     for (let i = 0; i< modules.length; i++) {
       const module = modules[i]
       if (value === module.getAttribute('data-value')) {
         const {
           y
         } = module.getBoundingClientRect()
-        this.moduleWrap.current.scrollTop = y + scrollTop - wrapTop
+        moduleWrap.current.scrollTop = y + scrollTop - wrapTop
         return
       }
     }
@@ -60,7 +63,7 @@ class ScrollTabview extends Component<IProps, IState> {
       } = module.getBoundingClientRect()
       const {
         top: wrapTop
-      } = this.moduleWrap.current.getBoundingClientRect()
+      } = moduleWrap.current.getBoundingClientRect()
 
       if (top - wrapTop <= 0 &&  top - wrapTop + height > 0) {
         this.setState({
@@ -88,8 +91,8 @@ class ScrollTabview extends Component<IProps, IState> {
       currentTab
     } = this.state
     if (currentTab !== prevState.currentTab) {
-      if (this.navigationBar.current) {
-        this.navigationBar.current.changeTab(currentTab)
+      if (navigationBar.current) {
+        navigationBar.current.changeTab(currentTab)
       }
     }
   }
@@ -130,9 +133,9 @@ class ScrollTabview extends Component<IProps, IState> {
     return (
       <div className={classnames(styles.scrollTabview, customClass ? customClass : null)}>
         <div className={styles.scrollTabviewTabs}>
-          <NavigationBar ref={this.navigationBar} tabs={modules} onTabChange={(value: string | number) => this._onTabChange(value)}/>
+          <NavigationBar ref={navigationBar} tabs={modules} onTabChange={(value: string | number) => this._onTabChange(value)}/>
         </div>
-        <div className={styles.scrollTabviewModules} ref={this.moduleWrap} onScroll={(e) => this._onScroll(e)}>
+        <div className={styles.scrollTabviewModules} ref={moduleWrap} onScroll={(e) => this._onScroll(e)}>
           {
             (children instanceof Array) ? (
               <>

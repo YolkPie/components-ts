@@ -17,13 +17,13 @@ export default class DrawerIcons extends Component<ProgressProp, ProgressState> 
         };
     }
 
-    show = () => {
+    show() {
         this.setState({
             percent: 100
         })
     }
 
-    close = () => {
+    close() {
         this.setState({
             percent: 0
         })

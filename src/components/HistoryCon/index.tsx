@@ -16,18 +16,21 @@ interface States {
     dataList: string[],
 }
 class HistoryCon extends Component<Props, States> {
-    state: States = {
-        showDele: false,
-        dataList: [],
-    }
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            showDele: false,
+            dataList: [],
+        }
+      }
 
-    deleteHistoryItem = (word:string) => {
+    deleteHistoryItem(word:string){
         this.props.deleteHistoryItem(word)
     }
-    deleteHistoryAll= () => {
+    deleteHistoryAll(){
         this.props.deleteHistoryAll()
     }
-    goSearchHistoryItem= (keyword:string) => {
+    goSearchHistoryItem(keyword:string) {
         this.props.searchMainList(keyword)
     }
 

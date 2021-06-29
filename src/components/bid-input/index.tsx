@@ -14,7 +14,7 @@ export default class BidInput extends Component<{},BidInputState> {
     }
   }
 
-  dec = () => {
+  dec() {
     let { num } = this.state
     if (num <= 0) {
       return
@@ -24,7 +24,7 @@ export default class BidInput extends Component<{},BidInputState> {
     })
   }
 
-  inc = () => {
+  inc() {
     let { num } = this.state
     this.setState({
       num: num + 1
@@ -33,7 +33,7 @@ export default class BidInput extends Component<{},BidInputState> {
 
 
   //出价金额大写
-  digitUppercase = (money: any) => {
+  digitUppercase(money: any){
     var cnNums = new Array("零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"); // 汉字的数字
     var cnIntRadice = new Array("", "拾", "佰", "仟"); // 基本单位
     var cnIntUnits = new Array("", "万", "亿", "兆"); // 对应整数部分扩展单位

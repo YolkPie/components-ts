@@ -23,92 +23,93 @@ interface IState {
 }
 
 class ImageMagnifier extends Component<ISProps, IState> {
-    state: IState = {
-        /**
-         * 图片放大镜参数列表
-         * 组件宽高必须大于鼠标悬停小方块 ！！！
-         */
-        params: {
-            // 放大倍数
-            scale: 4,
-            // 组件宽
-            width: "450",
-            // 组件高
-            height: "450"
-        },
-        // 缩略图
-        minImg: "",
-        // 大图
-        maxImg: "",
-
-        // 开关
-        magnifierOff: false,
-        // 图片加载情况
-        imgLoad: false,
-        /**
-         * 样式
-         */
-        cssStyle: {
-            // 图片容器样式
-            imgContainer: {
-                width: "450px",
-                height: "450px",
-                border: "1px solid #ccc",
-                cursor: "move",
-                position: "relative"
-            },
-            // 鼠标悬停小方块样式
-            mouseBlock: {
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "100px",
-                height: "100px",
-                background: "rgba(0,0,0,0.1)",
-                zIndex: 99
-            },
-            // 鼠标悬停遮罩层样式
-            maskBlock: {
-                position: "absolute",
-                top: "0",
-                left: "0",
-                width: "100%",
-                height: "100%",
-                background: "rgba(0,0,0,0)",
-                zIndex: 100
-            },
-
-            //  放大镜容器样式
-            magnifierContainer: {
-                position: "absolute",
-                left: "450px",
-                top: "0",
-                width: "450px",
-                height: "450px",
-                border: "1px solid #ccc",
-                overflow: "hidden",
-                zIndex: 98
-            },
-            // 图片样式
-            imgStyle: {
-                width: "100%",
-                height: "100%"
-            },
-            // 图片放大样式
-            // 此处图片宽高不能设置为百分比，在scale的作用下，放大的只是图片初始的宽高 ！！！
-            imgStyle2: {
-                width: "450px",
-                height: "450px",
-                position: "absolute",
-                top: 0,
-                left: 0,
-                transform: "scale(4)",
-                transformOrigin: "top left"
-            }
-        }
-    };
+    
     constructor(props: ISProps) {
         super(props);
+        this.state = {
+            /**
+             * 图片放大镜参数列表
+             * 组件宽高必须大于鼠标悬停小方块 ！！！
+             */
+            params: {
+                // 放大倍数
+                scale: 4,
+                // 组件宽
+                width: "450",
+                // 组件高
+                height: "450"
+            },
+            // 缩略图
+            minImg: "",
+            // 大图
+            maxImg: "",
+    
+            // 开关
+            magnifierOff: false,
+            // 图片加载情况
+            imgLoad: false,
+            /**
+             * 样式
+             */
+            cssStyle: {
+                // 图片容器样式
+                imgContainer: {
+                    width: "450px",
+                    height: "450px",
+                    border: "1px solid #ccc",
+                    cursor: "move",
+                    position: "relative"
+                },
+                // 鼠标悬停小方块样式
+                mouseBlock: {
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "100px",
+                    height: "100px",
+                    background: "rgba(0,0,0,0.1)",
+                    zIndex: 99
+                },
+                // 鼠标悬停遮罩层样式
+                maskBlock: {
+                    position: "absolute",
+                    top: "0",
+                    left: "0",
+                    width: "100%",
+                    height: "100%",
+                    background: "rgba(0,0,0,0)",
+                    zIndex: 100
+                },
+    
+                //  放大镜容器样式
+                magnifierContainer: {
+                    position: "absolute",
+                    left: "450px",
+                    top: "0",
+                    width: "450px",
+                    height: "450px",
+                    border: "1px solid #ccc",
+                    overflow: "hidden",
+                    zIndex: 98
+                },
+                // 图片样式
+                imgStyle: {
+                    width: "100%",
+                    height: "100%"
+                },
+                // 图片放大样式
+                // 此处图片宽高不能设置为百分比，在scale的作用下，放大的只是图片初始的宽高 ！！！
+                imgStyle2: {
+                    width: "450px",
+                    height: "450px",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    transform: "scale(4)",
+                    transformOrigin: "top left"
+                }
+            }
+        };
     }
 
     /**
@@ -129,19 +130,19 @@ class ImageMagnifier extends Component<ISProps, IState> {
      * 方法
      */
     // 鼠标移入
-    mouseEnter = () => {
+    mouseEnter() {
         this.setState({
             magnifierOff: true
         });
     };
     // 鼠标移除
-    mouseLeave = () => {
+    mouseLeave() {
         this.setState({
             magnifierOff: false
         });
     };
     // 鼠标移动
-    mouseMove = (event: React.MouseEvent<HTMLImageElement>) => {
+    mouseMove(event: React.MouseEvent<HTMLImageElement>) {
         let e = event.nativeEvent;
         this.calculationBlock(e.offsetX, e.offsetY);
     };

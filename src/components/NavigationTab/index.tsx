@@ -21,16 +21,21 @@ interface IState {
   currentTabIndex: number,
   tabBarLeft: number,
 }
+let tabBar = React.createRef<HTMLElement>()
+  let tabWrap = React.createRef<HTMLDivElement>()
 
 class NavigationTab extends Component<IProps, IState> {
 
-  state: IState = {
-    currentTabIndex: -1,
-    tabBarLeft: 0,
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      currentTabIndex: -1,
+      tabBarLeft: 0,
+    }
   }
 
-  private tabBar = React.createRef<HTMLElement>()
-  private tabWrap = React.createRef<HTMLDivElement>()
+  // private tabBar = React.createRef<HTMLElement>()
+  // private tabWrap = React.createRef<HTMLDivElement>()
 
   changeTab(value: string | number) {
     const {
@@ -46,23 +51,23 @@ class NavigationTab extends Component<IProps, IState> {
   }
 
   _updateTabBarPositon() {
-    const tabWrap = this.tabWrap.current
-    const tabBar = this.tabBar.current
-    if (tabWrap && tabBar) {
+    const tabWrapNew = tabWrap.current
+    const tabBarNew = tabBar.current
+    if (tabWrapNew && tabBarNew) {
       const {
         currentTabIndex
       } = this.state
-      const currentTab = tabWrap.querySelectorAll('div')[currentTabIndex]
+      const currentTab = tabWrapNew.querySelectorAll('div')[currentTabIndex]
       const {
         left: wrapLeft
-      } = tabWrap.getBoundingClientRect()
+      } = tabWrapNew.getBoundingClientRect()
       const {
         width: tabWidth,
         left: tabLeft
       } = currentTab.getBoundingClientRect()
       const {
         width: tabBarWidth
-      } = tabBar.getBoundingClientRect()
+      } = tabBarNew.getBoundingClientRect()
       this.setState({
         tabBarLeft: tabLeft + (tabWidth - tabBarWidth) / 2 - wrapLeft
       })
@@ -116,7 +121,7 @@ class NavigationTab extends Component<IProps, IState> {
             <div
               className={classnames(styles.navigationTab, customClass, isFixed ? styles.isFixed : null)}
             >
-              <div className={styles.navigationTabWrap} ref={this.tabWrap}>
+              <div className={styles.navigationTabWrap} ref={tabWrap}>
                 {
                   tabs.map((tab: TabItem, index: number) => {
                     return (
@@ -132,7 +137,7 @@ class NavigationTab extends Component<IProps, IState> {
                     )
                   })
                 }
-                <b className={styles.navigationTabBar} ref={this.tabBar} style={{
+                <b className={styles.navigationTabBar} ref={tabBar} style={{
                   left: tabBarLeft
                 }}></b>
               </div>

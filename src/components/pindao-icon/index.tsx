@@ -8,7 +8,7 @@ interface Props {
 
 class IconCard extends Component<Props> {
 
-    goIconClick = (href:string): void => {
+    goIconClick(href:string) {
         window.location.href = href
     }
 

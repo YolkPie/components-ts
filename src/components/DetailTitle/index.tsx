@@ -13,8 +13,6 @@ interface IState {}
 
 class DetailTitle extends Component<IProps, IState> {
 
-  state: IState = {}
-
   render () {
     const {
       title,

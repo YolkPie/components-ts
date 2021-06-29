@@ -22,7 +22,14 @@ interface IState {
 
 class ChooseActive extends Component<Props, IState> {
 
-  _initFormat = () => {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      formatList: this._initFormat()
+    }
+  }
+
+  _initFormat(){
     const { labelList } = this.props
     labelList.map((item) => {
       if(!item.selected){
@@ -31,12 +38,8 @@ class ChooseActive extends Component<Props, IState> {
     })
     return labelList
   }
-
-  state: IState = {
-    formatList: this._initFormat()
-  };
   
-  _chooseClick = (item:labelItem) => {
+  _chooseClick(item:labelItem) {
     const { callBack } = this.props
     let newFormatList = JSON.parse(JSON.stringify(this.state.formatList)) 
     for(let i=0; i<this.state.formatList.length; i++){

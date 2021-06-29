@@ -21,7 +21,7 @@ export default class SearchInput extends Component<SearchInputProps,SearchInputS
     }
   }
 
-  changeFunc = (e:any) => {
+  changeFunc(e:any){
     console.log("e=",e.target.value)
     const keyWord = e.target.value
     let _isShowClear = false
@@ -34,14 +34,14 @@ export default class SearchInput extends Component<SearchInputProps,SearchInputS
     })
   }
 
-  clearKeyWord=()=>{
+  clearKeyWord() {
     this.setState({
       isShowClear: false,
       keyWord:''
     })
   }
 
-  gotoSearch=()=>{
+  gotoSearch() {
     alert("进入搜索页面")
   }
 

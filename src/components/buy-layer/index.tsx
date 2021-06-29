@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { filterImg } from "../../utils";
 import styles from "./index.css";
 
 interface BuyLayerProps {
@@ -7,7 +6,7 @@ interface BuyLayerProps {
 }
 
 export default class BuyLayer extends Component<BuyLayerProps> {
-  renderItems = (data:any) => {
+  renderItems (data:any){
     return (
       <div>
         {data &&

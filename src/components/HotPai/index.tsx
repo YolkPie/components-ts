@@ -20,11 +20,15 @@ interface States {
     showDele: boolean,
 }
 class HotPai extends Component<Props, States> {
-    state: States = {
-        showDele: false
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            showDele: false
+        }
     }
 
-    goHotItem = (url:string) => {
+    goHotItem(url:string) {
         this.props.callBack(url)
     }
 

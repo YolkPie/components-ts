@@ -343,19 +343,22 @@ interface States {
 }
 
 class AddressPanel extends Component<Props, States> {
-  state: States = {
-    selectedIds: [],
-    selectedNames: [],
-    addressList: [{}, {}, {}, {}],
-    selectedTitles: ['请选择'],
-    currentLevel: 0,
-    isFourLevel: false,
-    ToastText: ''
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      selectedIds: [],
+      selectedNames: [],
+      addressList: [{}, {}, {}, {}],
+      selectedTitles: ['请选择'],
+      currentLevel: 0,
+      isFourLevel: false,
+      ToastText: ''
+    }
   }
   /**
    * 关闭
    */
-  closeHandle = (): void => {
+  closeHandle () {
     const {
       onClose
     } = this.props
@@ -370,7 +373,7 @@ class AddressPanel extends Component<Props, States> {
   /**
    * 获取地址信息
    */
-  getAddressListByLevel = (id: number, level: number, loadNext: boolean): void => {
+  getAddressListByLevel (id: number, level: number, loadNext: boolean) {
 
     // getAreaInfo(id, level).then((data: any) => {
       let data = datal
@@ -434,7 +437,7 @@ class AddressPanel extends Component<Props, States> {
   /**
    * 选择地址
    */
-  addressClickHandle = (id: number, name: string, level: number): void => {
+  addressClickHandle (id: number, name: string, level: number) {
     const {
       selectedIds,
       selectedNames,
@@ -466,7 +469,7 @@ class AddressPanel extends Component<Props, States> {
    * @param array 
    * @param startIndex 
    */
-  fillDefaultTitle(array: any[], startIndex: number, defaultValue: any = ''): any[] {
+  fillDefaultTitle(array: any[], startIndex: number, defaultValue: any = '') {
     array[startIndex] = '请选择'
     for (let i = startIndex + 1; i < array.length; i++) {
       array[i] = defaultValue
@@ -477,12 +480,12 @@ class AddressPanel extends Component<Props, States> {
   /**
    * 切换地址层级
    */
-  addressLevelClickHandle = (currentLevel: number): void => {
+  addressLevelClickHandle(currentLevel: number) {
     this.setState({
       currentLevel
     })
   }
-  addressClickAll= (level: number): void => {
+  addressClickAll(level: number) {
     const {
       selectedIds,
       selectedNames,
@@ -513,7 +516,7 @@ class AddressPanel extends Component<Props, States> {
   /**
    * 比较Id是否一致
    */
-  compareIds = (currentIds: number[], nextIds: number[]): boolean => {
+  compareIds (currentIds: number[], nextIds: number[]){
     if (currentIds.length !== nextIds.length) return false
     for (let i = 0; i < currentIds.length; i++) {
       if (currentIds[i] !== nextIds[i]) {
@@ -565,7 +568,7 @@ class AddressPanel extends Component<Props, States> {
       }
     }
   }
-  navClick = (str:string) => {
+  navClick(str:string) {
     this.setState({
       ToastText: str
     })

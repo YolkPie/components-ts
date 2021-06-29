@@ -17,7 +17,7 @@ export default class Progress extends Component<ProgressProp, ProgressState> {
         };
     }
 
-    increase = () => {
+    increase() {
         const {percent} = this.state
         const targetPercent:any = percent >= 90 ? 100 : percent + 10;
         const speed:any = (targetPercent - percent) / 400;
@@ -36,7 +36,7 @@ export default class Progress extends Component<ProgressProp, ProgressState> {
         window.requestAnimationFrame(animate);
     }
 
-    decrease = () => {
+    decrease() {
         const {percent} = this.state
         const targetPercent:any = percent < 10 ? 0 : percent - 10;
         const speed:any = (percent - targetPercent) / 400;

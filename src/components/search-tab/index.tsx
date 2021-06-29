@@ -20,7 +20,7 @@ export default class SearchTab extends Component<ProgressProp, ProgressState> {
   };
   }
 
-  handleSearchTab=(index:number)=>{
+  handleSearchTab(index:number) {
     this.setState({
       index
     },()=>{

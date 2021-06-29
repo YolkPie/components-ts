@@ -127,19 +127,21 @@ interface States {
   statusCode: number,
   endRealStatus: boolean,
 }
-
+let timer:any = null
 class AuctionItem extends Component<Props, States> {
 
-  state: States = {
-    startTime: -1,
-    remainTime: -1,
-    endTime: -1,
-    statusCode: -1,
-    // 结束后请求实时接口状态
-    endRealStatus: true,
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      startTime: -1,
+      remainTime: -1,
+      endTime: -1,
+      statusCode: -1,
+      // 结束后请求实时接口状态
+      endRealStatus: true,
+    }
   }
-
- timer:any = null
+  
 
   componentDidMount() {
     const {addCountdown, itemInfo} = this.props;
@@ -153,7 +155,7 @@ class AuctionItem extends Component<Props, States> {
 
     addCountdown(itemInfo.id, this.countdown, this);
 
-    this.timer = setTimeout(() => {
+    timer = setTimeout(() => {
       this.countdown(this)
     }, 1000)
   }
@@ -161,7 +163,7 @@ class AuctionItem extends Component<Props, States> {
   componentWillUnmount() {
     const {removeCountdown, itemInfo} = this.props;
     removeCountdown(itemInfo)
-    clearInterval(this.timer)
+    clearInterval(timer)
   }
 
   renderPriceTag() {

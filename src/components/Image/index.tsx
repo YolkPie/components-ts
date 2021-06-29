@@ -23,10 +23,13 @@ interface IState {
 
 class Image extends Component<IProps, IState> {
 
-  state: IState = {
-    showError: false,
-    isLoading: true,
-    isHide: false
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      showError: false,
+      isLoading: true,
+      isHide: false
+    }
   }
 
   componentDidMount () {
@@ -56,20 +59,20 @@ class Image extends Component<IProps, IState> {
     }
   }
 
-  _onError = () => {
+  _onError(){
     this.setState({
       isLoading: false,
       showError: true
     })
   } 
 
-  _onLoad = () => {
+  _onLoad () {
     this.setState({
       isLoading: false
     })
   }
 
-  _getDisplayImage = () => {
+  _getDisplayImage () {
     const {
       src,
       loadingImg,

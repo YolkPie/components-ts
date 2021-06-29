@@ -21,10 +21,8 @@ interface IState {
 
 class ShopCard extends Component<IProps, IState> {
 
-  state: IState = {
-  }
 
-  _getSubtitleConetnt = () => {
+  _getSubtitleConetnt() {
     const {
       subtitle,
       renderSubtitle
@@ -38,7 +36,7 @@ class ShopCard extends Component<IProps, IState> {
     return ''
   }
   
-  _handleClick = () => {
+  _handleClick() {
     const {
       onClick
     } = this.props

@@ -26,13 +26,17 @@ interface States {
     itemVisible: boolean
 }
 class AgencyCard extends Component<Props, States> {
-    state: States = {
-        itemVisible: false
-    }
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            itemVisible: false
+        }
+      }
     /**
      * 跳转机构详情页面
      */
-     gotoAgencyDetail = (id: number, publicsource: number): void => {
+     gotoAgencyDetail (id: number, publicsource: number) {
          console.log('go new page')
      }
 
