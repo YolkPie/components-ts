@@ -1,0 +1,187 @@
+.ItemContainer_card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 278px;
+  background-color: #fff;
+  padding: 24px 0 16px 0;
+}
+.ImageComtainer {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 16px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.ImageTagContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+.ImageTag {
+  padding: 0 10px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 4px 0 4px 0;
+  line-height: 32px;
+  margin-right: 8px;
+}
+
+.loanTag {
+  padding: 0 10px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 4px 0 4px 0;
+  line-height: 32px;
+  margin-right: 8px;
+  background-color: #e3874c;
+  color: #fff;
+}
+.xiangouTag {
+  padding: 0 10px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 4px 0 4px 0;
+  line-height: 32px;
+  margin-right: 8px;
+  background-color: #f6e38b;
+  color: #a55300;
+}
+.yijianTag {
+  padding: 0 10px;
+  font-size: 22px;
+  color: #fff;
+  border-radius: 4px 0 4px 0;
+  line-height: 32px;
+  margin-right: 8px;
+  background-color: #ff6864;
+  color: #fff;
+}
+
+.InfoComtainer {
+  width: 422px;
+}
+
+.InfoTitle {
+  overflow: hidden;
+  word-break: break-all;
+  font-size: 28px;
+  line-height: 38px;
+  color: #252525;
+  font-weight: 600;
+  padding-bottom: 12px;
+}
+
+.InfoPrice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 4px;
+}
+
+.InfoPriceTag {
+  font-size: 24px;
+  color: rgba(153, 153, 153, 1);
+  padding-right: 5px;
+}
+
+.InfoPriceNumTag {
+  font-size: 24px;
+}
+
+.InfoPriceNum {
+  font-size: 36px;
+  color: #da2622;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.InfoDetail_icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 14px;
+}
+.oneLine_icon {
+  padding-bottom: 38px;
+}
+.icon_item {
+  font-size: 22px;
+  padding: 0 6px;
+  line-height: 28px;
+  border: 1px solid #da2622;
+  color: #da2622;
+  margin: 0 5px 5px 0;
+}
+
+.InfoDetail {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: flex-end;
+  font-size: 24px;
+  color: rgba(153, 153, 153, 1);
+  padding: 6px 0 8px 0;
+  background: url(./images/icon-next.png) no-repeat right 10px;
+  background-size: 24px;
+}
+
+.InfoDetailVisit {
+  overflow: hidden;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.InfoDetailVisitNum {
+  color: #252525;
+  margin-right: 8px;
+}
+
+.InfoDetailLine {
+  background-color: rgba(153, 153, 153, 1);
+  width: 1px;
+  height: 24px;
+  margin: 5px 14px 0 14px;
+}
+
+.InfoDetailLoc {
+  display: block;
+  overflow: hidden;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.InfoTime {
+  display: flex;
+  flex-direction: row;
+  width: 420px;
+  height: 36px;
+  margin-top: 8px;
+  line-height: 36px;
+  background-color: rgba(242, 242, 242, 1);
+}
+
+.InfoTimeTag {
+  font-size: 24px;
+  width: 120px;
+  height: 100%;
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+  text-align: center;
+  background-color: #da2622;
+  color: #fff;
+}
+
+.InfoTimeDesc {
+  color: #252525;
+  flex: 1;
+  text-align: center;
+  font-size: 22px;
+}

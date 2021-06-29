@@ -1,0 +1,79 @@
+.agencyItem {
+  border-bottom: 1px solid rgba(218, 218, 218, 0.4);
+  padding: 40px 0;
+}
+.agencyItem__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.agencyItem__top_orglogo {
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 117, 197, 1);
+  border-radius: 12px;
+}
+.agencyItem__top_orgname {
+  width: 421px;
+  line-height: 42px;
+  font-size: 30px;
+  font-weight: 500;
+  color: rgba(46, 45, 45, 1);
+}
+.agencyItem__top_look {
+  width: 130px;
+  height: 46px;
+  background: linear-gradient(
+    318deg,
+    rgba(255, 86, 24, 1) 0%,
+    rgba(255, 32, 0, 1) 23.89941618256248%,
+    rgba(232, 0, 0, 1) 100%
+  );
+  border-radius: 30px;
+  box-shadow: 0 8px 20px 0 rgba(240, 47, 15, 0.1);
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 46px;
+}
+.agencyItem__pai {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+}
+.agencyItem__pai_imgbox {
+  position: relative;
+  width: 196px;
+  height: 196px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.agencyItem__pai_img {
+  width: 196px;
+  height: 196px;
+}
+.agencyItem__pai_bidnum {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 196px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  font-size: 24px;
+}
+.agencyItem__pai_price {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.agencyItem__pai_redColor {
+  color: rgba(225, 48, 48, 1);
+}
+.agencyItem__pai_priceNum {
+  color: rgba(225, 48, 48, 1);
+  font-size: 24px;
+  font-weight: 500;
+}

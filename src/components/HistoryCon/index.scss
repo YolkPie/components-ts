@@ -1,0 +1,87 @@
+.history {
+  padding-top: 15px;
+}
+.history__ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px 6px 12px;
+}
+.history__li {
+  display: flex;
+  position: relative;
+  height: 56px;
+  line-height: 56px;
+  padding: 0 32px;
+  margin: 13px 0 13px 24px;
+  border-radius: 28px;
+  background-color: rgba(243, 243, 243, 1);
+  color: #252525;
+  font-size: 24px;
+}
+.history__deleitem {
+  position: absolute;
+  top: -13px;
+  right: 0;
+  height: 26px;
+  width: 26px;
+  background: url(./images/deleteh.png) no-repeat center center;
+  background-size: 26px;
+}
+.none {
+  display: none;
+}
+.commonTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  padding: 0 30px;
+}
+.commonTitle__left {
+  display: flex;
+}
+.commonTitle__left_text {
+  display: flex;
+  height: 42px;
+  color: #252525;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 42px;
+  padding-right: 5px;
+}
+.commonTitle__left_icon {
+  display: flex;
+  height: 42px;
+  width: 30px;
+}
+.lefticon_hot {
+  display: flex;
+  background: url(./images/hoticon.png) no-repeat center center;
+  background-size: 30px;
+}
+
+.commonTitle__right {
+  display: flex;
+}
+.commonTitle__right_f {
+  display: flex;
+  color: rgba(53, 53, 53, 0.65);
+  font-size: 24px;
+  padding-right: 28px;
+  border-right: 1px solid rgba(53, 53, 53, 0.65);
+  line-height: 28px;
+}
+.commonTitle__right_s {
+  display: flex;
+  color: #f21e0c;
+  font-size: 24px;
+  padding-left: 28px;
+}
+.commonTitle__right_show {
+  display: flex;
+  height: 32px;
+  width: 32px;
+  background: url(./images/deleall.png) no-repeat center center;
+  background-size: 30px;
+}
