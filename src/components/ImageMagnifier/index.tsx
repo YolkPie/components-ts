@@ -23,7 +23,6 @@ interface IState {
 }
 
 class ImageMagnifier extends Component<ISProps, IState> {
-    
     constructor(props: ISProps) {
         super(props);
         this.state = {
@@ -110,6 +109,12 @@ class ImageMagnifier extends Component<ISProps, IState> {
                 }
             }
         };
+        this.initParam = this.initParam.bind(this)
+        this.calculationBlock = this.calculationBlock.bind(this)
+        this.updataImg = this.updataImg.bind(this)
+        this.handleImageLoaded = this.handleImageLoaded.bind(this)
+        this.handleImageErrored = this.handleImageErrored.bind(this)
+
     }
 
     /**
@@ -117,6 +122,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
      */
     // 组件初始化
     componentWillMount() {
+        console.log(this, '--===')
         this.initParam();
         this.updataImg(this.props);
     }
@@ -221,9 +227,9 @@ class ImageMagnifier extends Component<ISProps, IState> {
                     <img style={cssStyle.imgStyle} src={minImg} alt="" />
                     <div
                         style={cssStyle.maskBlock}
-                        onMouseEnter={this.mouseEnter}
-                        onMouseLeave={this.mouseLeave}
-                        onMouseMove={this.mouseMove}
+                        onMouseEnter={this.mouseEnter.bind(this)}
+                        onMouseLeave={this.mouseLeave.bind(this)}
+                        onMouseMove={this.mouseMove.bind(this)}
                     />
                     {magnifierOff && <div style={cssStyle.mouseBlock} />}
                 </div>
