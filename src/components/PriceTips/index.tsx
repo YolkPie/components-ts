@@ -8,6 +8,7 @@ const PriceTips = (props: ISProps) => {
     const refTips = useRef(null)
     const [offsetLeft, SetOffsetLeft] = useState<string>('0')
     const [offsetTop, SetOffsetTop] = useState<string>('0')
+    const [showTip, SetShowTip] = useState<boolean>(false)
 
     const [tips, SetTips] = useState<object>({
         'width': '16px',
@@ -21,34 +22,60 @@ const PriceTips = (props: ISProps) => {
 
     const { tipMessage } = props
 
-    const el = document.createElement('div')
-    const elDiv = document.createElement('div')
-    const elSpan = document.createElement('span')
 
-    const showTip = () => {
-        console.log(refTips)
-        SetOffsetLeft((refTips.current.offsetLeft - 20) + '')
-        SetOffsetTop((refTips.current.offsetTop + 22) + '')
-        elSpan.setAttribute('style', 'display: block;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 10px solid #fff;position: absolute;left: -10px;top: 2px;')
-        elDiv.setAttribute('style', 'top: -12px;width: 0;height: 0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:12px solid #CDCBCE;position: absolute;')
-        el.setAttribute('style', `position: absolute;left: ${offsetLeft}px;top: ${offsetTop}px;padding: 14px 12px;display: inline-block;line-height: 14px; border: 1px solid #CDCBCE; background: #fff;`)
-        el.innerText = tipMessage
-        elDiv.appendChild(elSpan)
-        el.appendChild(elDiv)
-        document.body.appendChild(el)
+    const showTipView = () => {
+        const elSpan = {
+            display: 'block',
+            width: '0',
+            height: '0',
+            borderLeft: '10px solid transparent',
+            borderRight: '10px solid transparent',
+            borderBottom: '10px solid #fff',
+            position: 'absolute',
+            left: '16px',
+            top: '-10px'
+        }
+        const elDiv = {
+            top: '-12px',
+            left: '14px',
+            width: '0',
+            height: '0',
+            borderLeft: '12px solid transparent',
+            borderRight: '12px solid transparent',
+            borderBottom: '12px solid #CDCBCE',
+            position: 'absolute'
+        }
+        const el = {
+            position: 'absolute',
+            left: '-20px',
+            top: '22px',
+            width: '160px',
+            padding: '14px 12px',
+            display: 'inline-block',
+            lineHeight: '14px',
+            border: '1px solid #CDCBCE',
+            background: '#fff',
+            fontDamily:'Arial, "microsoft yahei", simsun',
+            color: '#666',
+            fontSize: '12px'
+        }
+        return (
+            <div style={el}>
+                {tipMessage}
+                <div style={elDiv}></div>
+                <div style={elSpan}></div>
+            </div>
+        )
+
     }
     const hiddenTip = () => {
-        document.body.removeChild(el)
+        // document.body.removeChild(el)
+        SetShowTip(false)
     }
-
-
-    useEffect(() => {
-        SetOffsetLeft((refTips.current.offsetLeft - 20) + '')
-        SetOffsetTop((refTips.current.offsetTop + 22) + '')
-    }, [props.tipMessage])
-
     return (
-        <div style={tips} ref={refTips} onMouseOver={showTip} onMouseOut={hiddenTip} />
+        <div style={tips} className="css" ref={refTips} onMouseOver={() => SetShowTip(true)} onMouseOut={hiddenTip} >
+            {showTip ? showTipView() : null}
+        </div>
     )
 }
 
