@@ -20,13 +20,13 @@ class DropDownSelect extends Component<DropDownSelectProps, DropDownSelectState>
     }
   }
 
-  handleShowSelect = () => {
+  handleShowSelect() {
     this.setState({
       isShowSelect: !this.state.isShowSelect
     })
   }
 
-  handleSelected = (selectedName: string) => {
+  handleSelected(selectedName: string)  {
     this.setState({
       selectedName,
       isShowSelect: false
@@ -40,9 +40,10 @@ class DropDownSelect extends Component<DropDownSelectProps, DropDownSelectState>
       <div className={css.container}>
         <div
           className={css.container__selected}
-          onClick={() => {
-            this.handleShowSelect()
-          }}
+          onClick={this.handleShowSelect.bind(this)}
+          // onClick={() => {
+          //   this.handleShowSelect()
+          // }}
         >
           <em>{selectedName}</em>
           <i className={isShowSelect ? css.container__up__icon : ''}></i>
@@ -55,9 +56,10 @@ class DropDownSelect extends Component<DropDownSelectProps, DropDownSelectState>
                 <div
                   key={i.toString()}
                   className={css.container__select}
-                  onClick={() => {
-                    this.handleSelected(val)
-                  }}
+                  onClick={this.handleSelected.bind(this, val)}
+                  // onClick={() => {
+                  //   this.handleSelected(val)
+                  // }}
                 >{val}</div>
               )
             })}

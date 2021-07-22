@@ -13,8 +13,14 @@ interface ISProps {
     minImg: string;
     maxImg: string;
 }
+
+interface ISParams {
+    scale: number;
+    width: string;
+    height: string
+}
 interface IState {
-    params: object;
+    params: ISParams;
     minImg: string;
     maxImg: string;
     magnifierOff: boolean;
@@ -32,7 +38,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
              */
             params: {
                 // 放大倍数
-                scale: 4,
+                scale: 2,
                 // 组件宽
                 width: "450",
                 // 组件高
@@ -42,7 +48,7 @@ class ImageMagnifier extends Component<ISProps, IState> {
             minImg: "",
             // 大图
             maxImg: "",
-    
+
             // 开关
             magnifierOff: false,
             // 图片加载情况
@@ -64,10 +70,13 @@ class ImageMagnifier extends Component<ISProps, IState> {
                     position: "absolute",
                     top: "0",
                     left: "0",
-                    width: "100px",
-                    height: "100px",
-                    background: "rgba(0,0,0,0.1)",
-                    zIndex: 99
+                    width: "300px",
+                    height: "300px",
+                    zIndex: 99,
+                    border: '1px solid #aaa',
+                    background: '#fede4f 50% top no-repeat',
+                    opacity: '0.5',
+                    cursor: 'move'
                 },
                 // 鼠标悬停遮罩层样式
                 maskBlock: {
@@ -79,14 +88,14 @@ class ImageMagnifier extends Component<ISProps, IState> {
                     background: "rgba(0,0,0,0)",
                     zIndex: 100
                 },
-    
+
                 //  放大镜容器样式
                 magnifierContainer: {
                     position: "absolute",
                     left: "450px",
                     top: "0",
-                    width: "450px",
-                    height: "450px",
+                    width: "550px",
+                    height: "550px",
                     border: "1px solid #ccc",
                     overflow: "hidden",
                     zIndex: 98
@@ -158,24 +167,24 @@ class ImageMagnifier extends Component<ISProps, IState> {
         let cssStyle = JSON.parse(JSON.stringify(this.state.cssStyle));
         /* 小方块位置 */
         // 防止鼠标移动过快导致计算失误，只要小于或者大于对应值，直接设置偏移量等于最小值或者最大值
-        if (offsetX < 50) {
-            offsetX = 50;
+        if (offsetX < 150) {
+            offsetX = 150;
         }
-        if (offsetX > 350) {
-            offsetX = 350;
+        if (offsetX > 300) {
+            offsetX = 300;
         }
-        if (offsetY < 50) {
-            offsetY = 50;
+        if (offsetY < 150) {
+            offsetY = 150;
         }
-        if (offsetY > 350) {
-            offsetY = 350;
+        if (offsetY > 300) {
+            offsetY = 300;
         }
-        cssStyle.mouseBlock.left = parseFloat((offsetX - 50) + '') + "px";
-        cssStyle.mouseBlock.top = parseFloat((offsetY - 50) + '') + "px";
+        cssStyle.mouseBlock.left = parseFloat((offsetX - 150) + '') + "px";
+        cssStyle.mouseBlock.top = parseFloat((offsetY - 150) + '') + "px";
 
         /* 计算图片放大位置 */
-        cssStyle.imgStyle2.left = parseFloat((-(offsetX - 50) * 4) + '') + "px";
-        cssStyle.imgStyle2.top = parseFloat((-(offsetY - 50) * 4) + '') + "px";
+        cssStyle.imgStyle2.left = parseFloat((-(offsetX - 150) * this.state.params.scale) + '') + "px";
+        cssStyle.imgStyle2.top = parseFloat((-(offsetY - 150) * this.state.params.scale) + '') + "px";
 
         this.setState({
             cssStyle: cssStyle
@@ -189,8 +198,8 @@ class ImageMagnifier extends Component<ISProps, IState> {
 
         cssStyle.imgContainer.width = params.width + "px";
         cssStyle.imgContainer.height = params.height + "px";
-        cssStyle.magnifierContainer.width = params.width + "px";
-        cssStyle.magnifierContainer.height = params.height + "px";
+        // cssStyle.magnifierContainer.width = params.width + "px";
+        // cssStyle.magnifierContainer.height = params.height + "px";
         cssStyle.magnifierContainer.left = params.width + "px";
         cssStyle.imgStyle2.width = params.width + "px";
         cssStyle.imgStyle2.height = params.height + "px";
