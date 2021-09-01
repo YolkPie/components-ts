@@ -67,8 +67,8 @@ export default class Progress extends Component<ProgressProp, ProgressState> {
                     <div className={css.container__info}>{percent}%</div>
                 </div>
                 <div className={css.container__btns}>
-                    <div onClick={this.decrease} className={css.container__btns__subtract}>-</div>
-                    <div onClick={this.increase} className={css.container__btns__add}>+</div>
+                    <div onClick={this.decrease.bind(this)} className={css.container__btns__subtract}>-</div>
+                    <div onClick={this.increase.bind(this)} className={css.container__btns__add}>+</div>
                 </div>
             </div>
         );

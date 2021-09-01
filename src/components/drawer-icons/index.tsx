@@ -42,7 +42,7 @@ export default class DrawerIcons extends Component<ProgressProp, ProgressState> 
                         >
                             <div 
                                 className={percent===0?css.container__wrapper__inner__icon__0:css.container__wrapper__inner__icon__close} 
-                                onClick={percent===0?this.show:this.close}
+                                onClick={percent===0?this.show.bind(this):this.close.bind(this)}
                             ></div>
                             <React.Fragment>
                                 <div 

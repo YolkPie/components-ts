@@ -1,0 +1,27 @@
+.container {
+  display: block;
+  position: relative;
+}
+.container__wrap {
+  width: 690px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+.container__sub__icon {
+  width: 60px;
+  height: 60px;
+  background-image: url(//m.360buyimg.com/img/jfs/t1/189400/12/20263/3567/612c447fEd2abcaea/faf67e65fecc4724.png);
+  background-position: center;
+  background-size: 38px;
+  background-repeat: no-repeat;
+}
+.container__sub__icon.selected {
+  background-image: url(//m.360buyimg.com/img/jfs/t1/195550/14/20428/3785/612c455aEd3235f07/69bf7e29191bf48e.png);
+}
+.container__sub__tip {
+  font-size: 28px;
+  color: #1d1e1e;
+  padding-left: 12px;
+}
