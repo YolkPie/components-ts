@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+}
+.check__box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.check__box__icon {
+  width: 32px;
+  height: 32px;
+  background-image: url(//m.360buyimg.com/img/jfs/t1/180323/10/6855/385/60b49158E862f1046/3e20a92c2beadb1f.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+}
+.check__box__icon.selected {
+  width: 32px;
+  height: 32px;
+  background-image: url(//m.360buyimg.com/img/jfs/t1/181707/28/6788/1255/60b48c98Ebecdbb6c/b74680d64e495f12.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+}
+.check__box__txt {
+  padding-left: 10px;
+  font-size: 28px;
+  color: #333333;
+}
