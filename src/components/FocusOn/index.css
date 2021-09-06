@@ -1,0 +1,28 @@
+.container {
+  display: block;
+  position: relative;
+}
+.focuson__wrap {
+  width: 690px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.focuson__wrap__icon {
+  width: 60px;
+  height: 60px;
+  background-image: url(./images/no-selected.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.focuson__wrap__icon.selected {
+  background-image: url(./images/selected.png);
+}
+.focuson__wrap__txt {
+  font-size: 28px;
+  color: #1d1e1e;
+  padding-top: 12px;
+}
