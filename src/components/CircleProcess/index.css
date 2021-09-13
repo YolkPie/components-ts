@@ -1,0 +1,61 @@
+.circle_process {
+  position: relative;
+  width: 199px;
+  height: 200px;
+  z-index: 10;
+}
+.circle_process .wrapper {
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  z-index: 999;
+}
+.circle_process .right {
+  right: 0;
+}
+.circle_process .left {
+  left: 0;
+}
+.circle_process .circle {
+  width: 160px;
+  height: 160px;
+  border: 20px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  transform: rotate(-135deg);
+  z-index: 999;
+}
+.circle_process .rightcircle {
+  border-top: 20px solid green;
+  border-right: 20px solid green;
+  right: 0;
+  animation: circle_right 5s linear infinite;
+}
+.circle_process .leftcircle {
+  border-bottom: 20px solid green;
+  border-left: 20px solid green;
+  left: 0;
+  animation: circle_left 5s linear infinite;
+}
+
+@keyframes circle_right {
+  0% {
+    -webkit-transform: rotate(-135deg);
+  }
+  50%,
+  100% {
+    -webkit-transform: rotate(45deg);
+  }
+}
+@keyframes circle_left {
+  0%,
+  50% {
+    -webkit-transform: rotate(-135deg);
+  }
+  100% {
+    -webkit-transform: rotate(45deg);
+  }
+}
