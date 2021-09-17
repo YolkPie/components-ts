@@ -1,0 +1,55 @@
+.cardWeek {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.cardWeekHeader {
+  display: flex;
+  height: 88px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #252525;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+.cardWeekBodyWrap {
+  overflow: hidden;
+}
+.cardWeekBody {
+  margin-right: -6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardWeekItem {
+  flex: 1;
+  width: 25%;
+  height: 112px;
+  font-size: 28px;
+  color: #252525;
+  max-width: 25%;
+  min-width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-top: none;
+  border-left: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+.cardWeekItemWeek {
+  font-size: 28px;
+  line-height: 40px;
+}
+.cardWeekItemDate {
+  font-size: 22px;
+  color: #898989;
+  line-height: 26px;
+}
+.cardWeekItemSelected {
+  background: #4696fd;
+}
+.cardWeekItemSelected span {
+  color: #fff;
+}

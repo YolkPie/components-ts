@@ -1,0 +1,43 @@
+.cardMonth {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.cardMonthHeader {
+  display: flex;
+  height: 88px;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #252525;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.cardMonthBodyWrap {
+  overflow: hidden;
+}
+.cardMonthBody {
+  margin-right: -6px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cardMonthItem {
+  flex: 1;
+  width: 25%;
+  height: 82px;
+  font-size: 28px;
+  color: #252525;
+  max-width: 25%;
+  min-width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-left: none;
+  border-top: none;
+  box-sizing: border-box;
+}
+.cardMonthItemSelected {
+  color: #fff;
+  background: #4696fd;
+}
