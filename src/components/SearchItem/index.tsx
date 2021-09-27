@@ -20,9 +20,12 @@ interface States {
 }
 class SearchItem extends Component<Props, States> {
     private textInput: HTMLInputElement;
-    state: States = {
-        hideitem: false,
-        CategoryListMe: this.props.CategoryList
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            hideitem: false,
+            CategoryListMe: this.props.CategoryList
+        }
     }
     
     ChooseMoreItemMe(item:ItemLabel){

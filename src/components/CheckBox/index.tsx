@@ -30,7 +30,7 @@ export default class CheckBox extends Component<{}, CheckBoxState> {
 		}
 	}
 
-	handleSelected =(id:number) =>{
+	handleSelected (id:number) {
 		const {data} = this.state
 		for(let i=0;i<data.length;i++){
 			if(data[i].id===id){

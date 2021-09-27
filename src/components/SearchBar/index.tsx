@@ -15,25 +15,28 @@ interface States {
 }
 class SearchBar extends Component<Props, States> {
     private textInput: HTMLInputElement;
-    state: States = {
-        keyWord: '',
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            keyWord: '',
         isFocus: false
+        }
     }
     /**
      * 控制菜单项显隐
      */
-     setKeyWord = (e:any) => {
+     setKeyWord (e:any) {
         this.setState({
             keyWord: e.target.value
         })
     }
-    Focus = () => {
+    Focus ()  {
         this.setState({
             isFocus: true
         })
         // this.props.togleShowMainPage(false)
     }
-    Blur = () => {
+    Blur () {
         //延时是为了防止deleteSearch事件未触发，就导致隐藏
         setTimeout(() =>{
             this.setState({
@@ -41,19 +44,19 @@ class SearchBar extends Component<Props, States> {
             })
         },100)
     }
-    deleteKeyWord = () => {
+    deleteKeyWord () {
         this.setState({
             keyWord: ''
         })
         this.textInput.focus()
     }
-    deleteSearch = () => {
+    deleteSearch () {
         this.setState({
             keyWord: '',
             isFocus: false
         })
     }
-    goSearch = (e:any) => {
+    goSearch (e:any) {
         let keycode = e.keyCode;
         if(keycode=='13') {
             e.preventDefault();  

@@ -4,7 +4,7 @@ import "./index.scss";
 
 export default class Btn extends Component {
   // 跳转结算
-  gotoOrder = () => {
+  gotoOrder (){
     const { gotoOrder } = this.props;
     if (gotoOrder && typeof gotoOrder === "function") {
       gotoOrder();

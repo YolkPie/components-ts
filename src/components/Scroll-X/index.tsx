@@ -17,11 +17,14 @@ interface States {
     labelListMe: ItemLabel[],
 }
 class ScrollX extends Component<Props, States> {
-    state: States = {
-        labelListMe: this.props.labelList,
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            labelListMe: this.props.labelList,
+        }
     }
 
-    returnNewLabelIdList = (deleteId:number, myList:ItemLabel[]) => {
+    returnNewLabelIdList (deleteId:number, myList:ItemLabel[]) {
         //返回当前选中的id-list,是否加上当前传入值
         let arr = []
         for(let i=0; i< myList.length; i++){
@@ -34,7 +37,7 @@ class ScrollX extends Component<Props, States> {
         return arr
     }
     
-    clickSwiper= (item:ItemLabel, index:number) => {
+    clickSwiper (item:ItemLabel, index:number) {
         const {labelListMe} = this.state
         let newList = JSON.parse(JSON.stringify(labelListMe))
     

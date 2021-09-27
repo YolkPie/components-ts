@@ -20,23 +20,26 @@ interface States {
     showFilterBox: number,
 }
 class RightSearch extends Component<Props, States> {
-    state: States = {
-        showFilterBox: 0,
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            showFilterBox: 0,
+        }
     }
-    resetAll = () => {
+    resetAll () {
         this.props.resetAll()
     }
-    filterSubmit = () => {
+    filterSubmit () {
         this.setState({
           showFilterBox: 2
         })
         this.props.filterSubmit()
     }
 
-    showFilterBoxClick =() => {
+    showFilterBoxClick ()  {
         this.setState({showFilterBox:1})
     }
-    resetLabelList = (list: any[]) => {
+    resetLabelList (list: any[]) {
         console.log(list)
       }
 

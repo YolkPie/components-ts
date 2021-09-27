@@ -45,15 +45,15 @@ interface Props {
     getNowTopCard: (itemInfo:ITuijieItem) => void,
 }
 interface States {
-    keyWord: string,
-    isFocus: boolean
+
 }
 class TuijieCard extends Component<Props, States> {
     private textInput: HTMLInputElement;
-    state: States = {
-        keyWord: '',
-        isFocus: false
-    }
+    constructor(props: Props) {
+      super(props);
+      this.state = {
+      }
+  }
     
     truncateTitle(title:string) {
         if (title.length >= 28) {
@@ -82,10 +82,6 @@ class TuijieCard extends Component<Props, States> {
     
 
     render() {
-        const {
-            keyWord,
-            isFocus
-        } = this.state
         const {itemInfo} = this.props;
         return (
             <div className={styles.TuijieContainer_card} onClick={() => {
