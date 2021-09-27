@@ -14,13 +14,16 @@ interface States {
     isFocus: boolean
 }
 class SearchBar extends Component<Props, States> {
-    private textInput: HTMLInputElement;
+    // private textInput: HTMLInputElement;
     constructor(props: Props) {
         super(props);
         this.state = {
             keyWord: '',
-        isFocus: false
+            isFocus: false
         }
+        // this.Focus.bind(this)
+        // this.Blur.bind(this)
+        // this.setKeyWord.bind(this)
     }
     /**
      * 控制菜单项显隐
@@ -31,6 +34,7 @@ class SearchBar extends Component<Props, States> {
         })
     }
     Focus ()  {
+        console.log(this)
         this.setState({
             isFocus: true
         })
@@ -48,7 +52,7 @@ class SearchBar extends Component<Props, States> {
         this.setState({
             keyWord: ''
         })
-        this.textInput.focus()
+        // this.textInput.focus()
     }
     deleteSearch () {
         this.setState({
@@ -60,7 +64,7 @@ class SearchBar extends Component<Props, States> {
         let keycode = e.keyCode;
         if(keycode=='13') {
             e.preventDefault();  
-            this.textInput.blur()
+            // this.textInput.blur()
             // this.props.togleShowMainPage(true)
             this.props.searchMainList(this.state.keyWord, true)
             //请求搜索接口
@@ -82,7 +86,9 @@ class SearchBar extends Component<Props, States> {
             <div className={styles.searchbar}>
                 <div className={styles.searchbar__searchicon}></div>
                 <form action='.' className={styles.searchbar__form}>
-                    <input ref={(ref) => this.textInput = ref} type="search" className={isFocus ? styles.showColor : styles.hideColor} placeholder={propsPlaceholder||'请输入搜索关键词'} onChange={this.setKeyWord} value={keyWord} onFocus={this.Focus} onBlur={this.Blur} onKeyDown={this.goSearch}/>
+                    <input 
+                   
+                    type="search" className={isFocus ? styles.showColor : styles.hideColor} placeholder={propsPlaceholder||'请输入搜索关键词'} onChange={(e)=>{this.setKeyWord(e)}} value={keyWord} onFocus={()=>{this.Focus()}} onBlur={(e)=>{this.Blur()}} onKeyDown={(e)=>{this.goSearch(e)}}/>
                     </form>
                 {keyWord && isFocus && <div className={styles.searchbar__deleteicon} onClick={this.deleteSearch}></div>}
                 {!isFocus && keyWord && <div className={styles.searchbar__textbox} onClick={this.deleteKeyWord}>{keyWord}</div>}

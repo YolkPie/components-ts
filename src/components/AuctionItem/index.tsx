@@ -154,6 +154,7 @@ interface States {
   currentPriceWithUnit:number
 }
 let timer:any = null
+let yugao_remainTime:number = null
 class AuctionItem extends Component<Props, States> {
 
   constructor(props: Props) {
@@ -168,7 +169,7 @@ class AuctionItem extends Component<Props, States> {
     }
   }
 
-  yugao_remainTime:number = null
+  
 
   UNSAFE_componentWillReceiveProps(props:any) { 
     if(this.state.originRemainTime ===undefined || this.state.statusCode !== props.RealTimeDataItem.auctionStatus){
@@ -209,7 +210,7 @@ class AuctionItem extends Component<Props, States> {
         originRemainTime: remainTime,
         statusCode: status.statusCode,
       });
-      this.yugao_remainTime = remainTime
+      yugao_remainTime = remainTime
       //如果在拍卖中，或者即将开始，才添加倒计时，否则不添加
       if(status.statusCode==1 || (remainTime<5000 && 0<=remainTime)){
         const {addCountdown, itemInfo} = this.props;
@@ -269,10 +270,10 @@ class AuctionItem extends Component<Props, States> {
               setTimeout(() =>{getRealTimeData(index, [self.props.itemInfo])},600)
             });
         }
-    } else if(self.state.statusCode == 0){// 预告中，使用this.yugao_remainTime变量避免了不断的setState（节省性能）,因为预告中不用不断更新页面倒计时
-        if (self.yugao_remainTime > 1000) {
-          self.yugao_remainTime = self.yugao_remainTime-1000
-        }else if ( 0 <= self.yugao_remainTime && self.yugao_remainTime <= 1000 ) {
+    } else if(self.state.statusCode == 0){// 预告中，使用yugao_remainTime变量避免了不断的setState（节省性能）,因为预告中不用不断更新页面倒计时
+        if (yugao_remainTime > 1000) {
+          yugao_remainTime = yugao_remainTime-1000
+        }else if ( 0 <= yugao_remainTime && yugao_remainTime <= 1000 ) {
           getRealTimeData(index, [self.props.itemInfo], [self.props.isRecommend])
         }
     }else{//结束、暂缓、中止、撤回

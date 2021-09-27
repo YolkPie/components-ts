@@ -48,7 +48,6 @@ interface States {
 
 }
 class TuijieCard extends Component<Props, States> {
-    private textInput: HTMLInputElement;
     constructor(props: Props) {
       super(props);
       this.state = {

@@ -19,7 +19,6 @@ interface States {
     CategoryListMe: ItemLabel[],
 }
 class SearchItem extends Component<Props, States> {
-    private textInput: HTMLInputElement;
     constructor(props: Props) {
         super(props);
         this.state = {
