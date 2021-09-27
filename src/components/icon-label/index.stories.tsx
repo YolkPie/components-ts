@@ -16,6 +16,6 @@ storiesOf("列表页组件|IconLabel", module)
               <div>一行展示，超过隐藏</div>
               <IconLabel labelList={labelList} customerClass = {customerClass} nowrap={nowrap}/>
               <div>折行展示</div>
-              <IconLabel labelList={labelList} customerClass = {customerClass} nowrap={false}/>
+              <IconLabel labelList={labelList} customerClass = {customerClass} nowrap={!nowrap}/>
       </div>;
   });

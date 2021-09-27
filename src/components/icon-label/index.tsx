@@ -20,7 +20,7 @@ class IconLabel extends Component<Props> {
   render () {
     const { labelList, customerClass, nowrap } = this.props
     return (
-        <div className={customerClass + ' ' + nowrap ? styles.icon__nowrap : styles.icon__ul}>
+        <div className={customerClass + ' ' + (nowrap ? styles.icon__nowrap : styles.icon__ul)}>
            { labelList && labelList.length && (
               labelList.map((infoitem:any, index:number) => {
                   return (

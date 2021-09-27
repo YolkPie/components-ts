@@ -59,4 +59,6 @@ export const ItemContainer_card: string;
 
   export const InfoTimeDesc: string; 
 
+  export const heightMargin: string;
+
           

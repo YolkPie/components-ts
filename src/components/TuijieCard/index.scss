@@ -1,0 +1,119 @@
+
+.TuijieContainer_card{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 278px;
+    background-color: #fff;
+    padding: 24px 0 16px 0;
+    .ImageComtainer{
+      position: relative;
+      width: 260px;
+      height: 260px;
+      border-radius: 16px;
+      margin-right: 20px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .ImageTagContainer{
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+    .ImageTag{
+      padding: 3px 16px;
+      background-color: #f6e38b;
+      font-size: 24px;
+      color: #fff;
+      border-radius: 16px 0 8px 0;
+      line-height: 36px;
+    }
+    
+    .InfoComtainer{
+      width: 422px; 
+    }
+    
+    .InfoTitle_tuijie{
+      overflow:hidden;
+      word-break: break-all;
+      font-size: 28px;
+      line-height: 38px;
+      color: #252525;
+      font-weight: 600;
+      padding-bottom: 10px;
+      min-height: 76px;
+    }
+    
+    .InfoPrice{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 4px;
+    }
+    
+    .InfoPriceTag{
+      font-size: 24px;
+      color: rgba(153,153,153,1);
+      padding-right: 5px;
+    }
+  
+    .InfoPriceNumTag{
+      font-size: 24px;
+    }
+    
+    .InfoPriceNum{
+      font-size: 36px;
+      color: #DA2622;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    
+    .InfoType{
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      padding: 5px 0 10px 0;
+    }
+    .InfoTypeText{
+      font-size: 24px;
+      color: #252525;
+      max-width: 290px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .InfoDetail{
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      align-items: flex-end;
+      font-size: 24px;
+      color: rgba(153,153,153,1);
+    }
+    
+    .InfoDetailVisit{
+      overflow: hidden;
+      max-width: 200px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .InfoDetailVisitNum{
+      color: #252525;
+      margin-right: 8px;
+    }
+    
+    .InfoDetailLine{
+      background-color: rgba(153,153,153,1);
+      width: 1px;
+      height: 24px;
+      margin: 0 26px 4px 26px;
+      vertical-align: top;
+    }
+  }
+  
+  

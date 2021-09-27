@@ -1,0 +1,34 @@
+.swiperbar{
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 80px;
+    padding-right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.swiper_active{
+    white-space: nowrap;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 22px;
+    border-radius: 22px;
+    margin: 16px 24px 16px 0;
+    background-color: #fff;
+    color: #F2270C;
+    border: 1px solid #F2270C;
+}
+.swiperbar_item{
+    white-space: nowrap;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 22px;
+    background-color: rgba(243,243,243,1);
+    border-radius: 22px;
+    margin: 16px 24px 16px 0;
+    border: 1px solid #fff;
+}
+

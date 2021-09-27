@@ -1,0 +1,225 @@
+.index__filtertab_s{
+    position: relative;
+    height: 78px;
+    width: 750px;
+}
+.index__filterbox{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    padding-left: 90px;
+    z-index: 100; 
+}
+.swiperbar{
+    position: absolute;
+    top: 0;
+    left: 36px;
+    right: 114px;
+    bottom: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 80px;
+    padding-right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.swiper_active{
+    white-space: nowrap;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 22px;
+    border-radius: 22px;
+    margin: 16px 24px 16px 0;
+    background-color: #fff;
+    color: #F2270C;
+    border: 1px solid #F2270C;
+}
+.swiperbar_item{
+    white-space: nowrap;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 22px;
+    background-color: rgba(243,243,243,1);
+    border-radius: 22px;
+    margin: 16px 24px 16px 0;
+    border: 1px solid #fff;
+}
+.sourtbar{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 102px;
+    height: 78px;
+    padding-left: 12px;
+    line-height: 78px;
+    font-size: 26px;
+    font-weight: 600;
+    background: url(./images/shaixuan.png) #fff no-repeat right 18px center;
+    background-size:  24px;
+    box-shadow: -12px 0 12px -15px rgba(0,0,0,.5);
+    cursor: pointer;
+}
+.filterbox_show{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    padding-left: 90px;
+    z-index: 100;
+    animation: slideInFilter 0.5s forwards ;
+}
+.filterbox_hide{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    padding-left: 90px;
+    z-index: 100;
+    animation: hideBox 0.5s forwards ;
+}
+.filtercon{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 660px;
+    background-color: #fff;
+    border-radius: 24px 0 0 24px;
+}
+.filtercon_main{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 180px;
+    background-color: rgba(243,243,243,1);
+    padding-bottom: 40px;
+    z-index: 103;
+    color: #252525;
+    overflow-y: auto;
+}
+.filtercon_bottom{
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 32px;
+    font-size: 26px;
+    box-shadow:  0 -4px 16px 0 rgba(0,0,0,0.08);
+    z-index: 106;
+}
+.filtercon_bottom_reset{
+    height: 68px;
+    width: 284px;
+    color: #F2270C;
+    background-color: #fff;
+    border: 1px solid #F2270C;
+    text-align: center;
+    line-height: 68px;
+    border-radius: 35px;
+    margin-right: 23px;
+}
+.filtercon_bottom_ok{
+    height: 70px;
+    width: 286px;
+    color: #fff;
+    background:linear-gradient(134.86deg, rgba(242,20,12,1) 0%,rgba(242,39,12,1) 61.69696956689077%,rgba(255,85,18,1) 100%),linear-gradient(rgba(242,39,12,1), rgba(242,39,12,1));;
+    text-align: center;
+    line-height: 70px;
+    border-radius: 35px;
+}
+@-webkit-keyframes slideInFilter {
+    0% {
+        opacity: 0.4;
+        transform: translateX(1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  @-webkit-keyframes slideInFilter {
+    0% {
+        opacity: 0.4;
+        transform: translateX(1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  @-moz-keyframes slideInFilter {
+    0% {
+        opacity: 0.4;
+        transform: translateX(1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  @keyframes slideInFilter {
+    0% {
+        opacity: 0.4;
+        transform: translateX(1000px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  /*出去的时候*/
+  @-webkit-keyframes hideBox {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateX(800px);
+    }
+  }
+  @-webkit-keyframes hideBox {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateX(800px);
+    }
+  }
+  @-moz-keyframes hideBox {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateX(800px);
+    }
+  }
+  @keyframes hideBox {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translateX(800px);
+    }
+  }

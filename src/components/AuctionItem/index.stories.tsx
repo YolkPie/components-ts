@@ -42,7 +42,9 @@ storiesOf("列表页组件|AuctionItem", module)
         currentPriceCN: '54355',
         auctionStatus: 2,
         accessNumber: 2,
+        remainTime: 5465645,
         displayStatus: 1,
+        currentPriceWithUnit: 5437867,
         endTime: 54325432545
       },
       '2222':{
@@ -53,25 +55,33 @@ storiesOf("列表页组件|AuctionItem", module)
         auctionStatus: 1,
         accessNumber: 2,
         displayStatus: 1,
-        endTime: 54325432545
+        endTime: 54325432545,
+        remainTime: 5743856,
+        currentPriceWithUnit: 5437867,
       },
     }
-    const getRealTimeData = (res:any) => {
-       console.log(res)
+    const getRealTimeData = (index:number,list: any[], isRecommend:boolean) => {
+       console.log()
     }
-    const addCountdown = (res:any) => {
-      console.log(res)
+    const addCountdown = (paimaiId: number, cuntdown:(item:any) => void, self:any) => {
+      console.log()
    }
-   const removeCountdown = (res:any) => {
-    console.log(res)
- }
+   const removeCountdown = (paimaiId: number) => {
+    console.log()
+    }
+    const getNowTopCard = (paimaiId: number) => {
+      console.log()
+    }
+
     return <div  >
             <AuctionItem 
               itemInfo={value}
-              realTimeData={realTimeData[value.id]}
+              index={3}
+              RealTimeDataItem={realTimeData[value.id]}
               getRealTimeData={getRealTimeData}
               addCountdown={addCountdown}
               removeCountdown={removeCountdown}
+              getNowTopCard={getNowTopCard}
             />
       </div>
   });

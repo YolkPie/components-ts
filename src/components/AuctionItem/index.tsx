@@ -74,6 +74,27 @@ const getStatus = ( displayStatus:number, auctionStatus:number ) => {
   }
   return status;
 }
+export const formateTimeNumber = (num:number) => num >= 10 ? num : `0${num}`;
+const forMatTime = (timestamp: number): string => {
+  let Moment = new Date(timestamp);
+      return `${formateTimeNumber(Moment.getMonth() + 1)}月${formateTimeNumber(Moment.getDate())}日  ${formateTimeNumber(Moment.getHours())}:${formateTimeNumber(Moment.getMinutes())}`;
+}
+
+const forMatRemainTime = (remainTime: number): string => {
+  if (remainTime && remainTime > 0) {
+    const remainTimeS = Math.floor(remainTime / 1000)
+    const day = Math.floor(remainTimeS / 60 / 60 / 24);
+    const hour = Math.floor((remainTimeS / 60 / 60) % 24);
+    const minutes = Math.floor((remainTimeS / 60) % 60);
+    const secondss = Math.ceil(remainTimeS % 60);
+    const seconds = secondss > 9 ? secondss.toString() : `0${secondss}`
+    return `剩${day>0?day+'天':''}${hour}小时${minutes}分${seconds}秒`;
+  }else{
+    return ''
+  } 
+}
+
+
 
 export interface IGood {
   id?: number;
@@ -109,15 +130,19 @@ export interface IRealTimeItem {
   auctionStatus?: number;
   accessNumber?: number;
   endTime?: number,
-  displayStatus?: number
+  currentPriceWithUnit: number,
+  displayStatus: number,
+  remainTime: number,
 }
 
 interface Props {
   itemInfo:IGood, 
-  realTimeData:IRealTimeItem, 
-  getRealTimeData: (list: any[]) => {},
+  index: number,
+  RealTimeDataItem:IRealTimeItem, 
+  getRealTimeData: (index:number,list: any[], isRecommend:boolean) => void,
   addCountdown: (paimaiId: number, cuntdown:(item:any) => void, self:any) => void, 
-  removeCountdown: (iteminfo: any) => void
+  removeCountdown: (paimaiId: number) => void,
+  getNowTopCard: (paimaiId: number) => void,
 }
 
 interface States {
@@ -125,7 +150,8 @@ interface States {
   remainTime: number,
   endTime: number,
   statusCode: number,
-  endRealStatus: boolean,
+  originRemainTime: number,
+  currentPriceWithUnit:number
 }
 let timer:any = null
 class AuctionItem extends Component<Props, States> {
@@ -137,38 +163,72 @@ class AuctionItem extends Component<Props, States> {
       remainTime: -1,
       endTime: -1,
       statusCode: -1,
-      // 结束后请求实时接口状态
-      endRealStatus: true,
+      originRemainTime: -1,
+      currentPriceWithUnit: -1
     }
+  }
+
+  yugao_remainTime:number = null
+
+  UNSAFE_componentWillReceiveProps(props:any) { 
+    if(this.state.originRemainTime ===undefined || this.state.statusCode !== props.RealTimeDataItem.auctionStatus){
+      this.refreshStatus(props.RealTimeDataItem)
+    }else if(Math.abs(this.state.originRemainTime-props.RealTimeDataItem.remainTime)>2000){//筛选出新请求的9条数据，因为别的没有更新请求，是不变的
+      let time_height = Math.abs(this.state.remainTime-props.RealTimeDataItem.remainTime)
+      //接口新更新的时间和此时倒计时时间相差多，代表延时拍卖状态下，从新开始倒计时，此时需要更新状态,或者组件倒计时结束变更状态时需要更新组件
+      if( time_height > 3000){
+        this.refreshStatus(props.RealTimeDataItem)
+      }
+    }
+    
   }
   
 
   componentDidMount() {
-    const {addCountdown, itemInfo} = this.props;
-    const {startTime, endTime, remainTime} = itemInfo;
+    if(this.state.originRemainTime ===undefined || this.state.statusCode !== this.props.RealTimeDataItem.auctionStatus){
+      this.refreshStatus(this.props.RealTimeDataItem)
+    }else if(Math.abs(this.state.originRemainTime-this.props.RealTimeDataItem.remainTime)>2000){//筛选出新请求的9条数据，因为别的没有更新请求，是不变的
+      let time_height = Math.abs(this.state.remainTime-this.props.RealTimeDataItem.remainTime)
+      //接口新更新的时间和此时倒计时时间相差多，代表延时拍卖状态下，从新开始倒计时，此时需要更新状态,或者组件倒计时结束变更状态时需要更新组件
+      if( time_height > 3000){
+        this.refreshStatus(this.props.RealTimeDataItem)
+      }
+    }
+  }
 
-    this.setState({
-      startTime,
-      endTime,
-      remainTime,
-    });
-
-    addCountdown(itemInfo.id, this.countdown, this);
-
-    timer = setTimeout(() => {
-      this.countdown(this)
-    }, 1000)
+  refreshStatus(RealTimeDataItem?:any){   
+    if(RealTimeDataItem){
+      const {startTime, endTime, remainTime, displayStatus, auctionStatus} = RealTimeDataItem;
+      let status = allStatus[ getStatus(displayStatus, auctionStatus) ];
+  
+      this.setState({
+        startTime,
+        endTime,
+        remainTime,
+        currentPriceWithUnit: RealTimeDataItem.currentPriceWithUnit,
+        originRemainTime: remainTime,
+        statusCode: status.statusCode,
+      });
+      this.yugao_remainTime = remainTime
+      //如果在拍卖中，或者即将开始，才添加倒计时，否则不添加
+      if(status.statusCode==1 || (remainTime<5000 && 0<=remainTime)){
+        const {addCountdown, itemInfo} = this.props;
+        setTimeout(() => {
+          addCountdown(itemInfo.id, this.countdown, this);
+        }, 1000)
+      }
+    }
+    
   }
 
   componentWillUnmount() {
     const {removeCountdown, itemInfo} = this.props;
-    removeCountdown(itemInfo)
-    clearInterval(timer)
+    removeCountdown(itemInfo.id)
   }
 
   renderPriceTag() {
     let priceTag = '当前价';
-    const { auctionStatus, displayStatus } = this.props.realTimeData
+    const { auctionStatus, displayStatus } = this.props.RealTimeDataItem
     if (Number(displayStatus) === 1) {
       switch (auctionStatus) {
         case 1:
@@ -185,98 +245,74 @@ class AuctionItem extends Component<Props, States> {
     return priceTag
   }
 
-  renderPriceNum() {
-    const {currentPriceCN} = this.props.realTimeData
-    return currentPriceCN
-  }
-
   countdown( self:any ) {
-    const {getRealTimeData} = self.props;
-    const {displayStatus, id} = self.props.itemInfo;
-    const {auctionStatus, endTime} = self.props.realTimeData;
-    let status = allStatus[ getStatus(displayStatus, auctionStatus) ];
-    self.setState({
-      statusCode: status.statusCode,
-    });
-    if ( status.statusCode ) {
-      if (endTime - new Date().getTime() > 0) {
-        self.setState({
-          endRealStatus: true,
-        })
-        self.setState({
-          remainTime: endTime - new Date().getTime(),
-        })
-      } else {
-        if(self.state.endRealStatus) {
-          getRealTimeData([self.props.itemInfo])
+    const {getRealTimeData, index} = self.props;
+    const {remainTime} = self.state
+    
+    if ( self.state.statusCode == 1 ) {//进行中  
+        if (remainTime > 86400000) {
+          
+        }else if (remainTime > 1000) {
+          let s = JSON.stringify(remainTime)
+          let ss = Number(s)
           self.setState({
-            endRealStatus: false,
+            remainTime: ss-1000,
           })
+        } else if( 0 <= remainTime && remainTime <= 1000){
+            const {removeCountdown, itemInfo} = self.props;
+            removeCountdown(itemInfo.id)
+            self.setState({
+              statusCode: 2,
+              remainTime: -1
+            },()=>{
+              //为了防止900毫秒时刷新，然后500毫秒时又刷新问题，采用一下延时请求
+              setTimeout(() =>{getRealTimeData(index, [self.props.itemInfo])},600)
+            });
         }
-      }
-    } else {
-      // 预计 开始
-      if ( new Date() >= self.state.startTime ) {
-        self.setState({
-          statusCode: 1,
-        }, () => {
-          getRealTimeData([self.props.itemInfo])
-        })
-      }
+    } else if(self.state.statusCode == 0){// 预告中，使用this.yugao_remainTime变量避免了不断的setState（节省性能）,因为预告中不用不断更新页面倒计时
+        if (self.yugao_remainTime > 1000) {
+          self.yugao_remainTime = self.yugao_remainTime-1000
+        }else if ( 0 <= self.yugao_remainTime && self.yugao_remainTime <= 1000 ) {
+          getRealTimeData(index, [self.props.itemInfo], [self.props.isRecommend])
+        }
+    }else{//结束、暂缓、中止、撤回
+
     }
   }
 
   getTimeStr( statusCode:number, startTime:number, endTime:number, remainTime:number ) {
     // 预告中
     if ( statusCode === 0 ) {
-      let Moment = startTime;
-      // return `${formateTimeNumber(Moment.month() + 1)}月${formateTimeNumber(Moment.date())}日  ${formateTimeNumber(Moment.hour())}:${formateTimeNumber(Moment.minute())}开始`;
-      return `开始`;
+      return `${forMatTime(startTime)} 开始`
     }
-// 已结束
+    // 已结束
     if ( statusCode === 2 ) {
-      let Moment = new Date(endTime);
-      return '结束'
-      // return `${formateTimeNumber(Moment.month() + 1)}月${formateTimeNumber(Moment.date())}日  ${formateTimeNumber(Moment.hour())}:${formateTimeNumber(Moment.minute())}结束`;
+      return `${forMatTime(endTime)} 结束`
     }
     // 拍卖中
     if ( statusCode === 1 ) {
-      // let Moment = moment.duration(remainTime);
-      return (
-        <div>剩余{remainTime}结束</div>
-        // <Fragment>
-        //   剩
-        //   {Moment.asDays() > 1 &&
-        //   <span>{parseInt(Moment.asDays())}天</span>}
-        //   {<span>{Moment.get('hours')}小时</span>}
-        //   {Moment.get('minutes') !== 0 &&
-        //   <span>{formateTimeNumber(Moment.get('minutes'))}分钟</span>}
-        //   {Moment.get('days') === 0 &&
-        //   <span>{formateTimeNumber(Moment.get('seconds'))}秒</span>}
-        // </Fragment>
-      );
+      return (<div>{forMatRemainTime(remainTime)}</div>);
     }
   }
 
   truncateTitle(title:string) {
-    if (title.length >= 28) {
-      return `${title.substring(0, 28)}...`;
+    if (title && title.length >= 18) {
+      return `${title.substring(0, 18)}...`;
     } else {
       return title;
     }
   }
 
   gotoItemPage(paimaiId:number) {
-    window.location.href = `//mpaimai.jd.com/${paimaiId}`
+    this.props.getNowTopCard(paimaiId)
   }
 
   render() {
-    const {addCountdown, removeCountdown, itemInfo, realTimeData, getRealTimeData} = this.props;
-    const { statusCode, startTime, remainTime } = this.state;
-    const { endTime, auctionStatus } = realTimeData;
-    const { displayStatus,province, city } = itemInfo;
-
-    let Status = allStatus[getStatus(displayStatus, auctionStatus)];
+    const {itemInfo, RealTimeDataItem} = this.props;
+    const { statusCode, remainTime } = this.state;
+    const { province, city, startTime } = itemInfo;
+    const { displayStatus,endTime, currentPriceWithUnit } = RealTimeDataItem
+    let Status = allStatus[getStatus(displayStatus, statusCode)];
 
     return (
       <div className={styles.ItemContainer_card} onClick={() => {
@@ -298,18 +334,18 @@ class AuctionItem extends Component<Props, States> {
                     )
                 })}
             </div>}
-            <div className={styles.InfoPrice}>
+            <div className={(itemInfo.labelStrs && itemInfo.labelStrs.length)?styles.InfoPrice:styles.heightMargin}>
                 <div className={styles.InfoPriceTag}>{this.renderPriceTag()}</div>
                 <div className={styles.InfoPriceNumTag} style={{color:Status.color}}>￥</div>
-                <div className={styles.InfoPriceNum} style={{color:Status.color}}>{this.renderPriceNum()}</div>
+                <div className={styles.InfoPriceNum} style={{color:Status.color}}>{currentPriceWithUnit}</div>
             </div>
             <div className={styles.InfoDetail}>
                 <div className={styles.InfoDetailLoc}>{province}</div>
                 <div className={styles.InfoDetailLine}></div>
                 <div className={styles.InfoDetailLoc}>{province + city}</div>
             </div>
-            <div className={styles.InfoTime} style={{backgroundColor: statusCode === 0 || statusCode === 1 || statusCode === 2 ? '#f3f3f3' : '#fff'}}>
-                <div className={styles.InfoTimeTag} style={{color:Status.color}}>{Status.msg}</div>
+            <div className={styles.InfoTime} style={{backgroundColor: (statusCode === 0 || statusCode === 1 || statusCode === 2) ? '#f3f3f3' : '#fff'}}>
+                <div className={styles.InfoTimeTag} style={{backgroundColor:Status.color}}>{Status.msg}</div>
                 <div className={styles.InfoTimeDesc}>{this.getTimeStr(statusCode, startTime, endTime, remainTime)}</div>
             </div>
         </div>
