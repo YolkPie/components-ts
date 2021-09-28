@@ -90,8 +90,8 @@ class SearchBar extends Component<Props, States> {
                    
                     type="search" className={isFocus ? styles.showColor : styles.hideColor} placeholder={propsPlaceholder||'请输入搜索关键词'} onChange={(e)=>{this.setKeyWord(e)}} value={keyWord} onFocus={()=>{this.Focus()}} onBlur={(e)=>{this.Blur()}} onKeyDown={(e)=>{this.goSearch(e)}}/>
                     </form>
-                {keyWord && isFocus && <div className={styles.searchbar__deleteicon} onClick={this.deleteSearch}></div>}
-                {!isFocus && keyWord && <div className={styles.searchbar__textbox} onClick={this.deleteKeyWord}>{keyWord}</div>}
+                {keyWord && isFocus && <div className={styles.searchbar__deleteicon} onClick={()=>this.deleteSearch}></div>}
+                {!isFocus && keyWord && <div className={styles.searchbar__textbox} onClick={()=>this.deleteKeyWord}>{keyWord}</div>}
             </div>
         )
     }

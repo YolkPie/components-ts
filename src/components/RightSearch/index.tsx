@@ -71,7 +71,7 @@ class RightSearch extends Component<Props, States> {
                             resetLabelList={this.resetLabelList}
                         />
                     </div>
-                    <div className={styles.sourtbar} onClick={this.showFilterBoxClick}>筛选</div>
+                    <div className={styles.sourtbar} onClick={()=>{this.showFilterBoxClick}}>筛选</div>
                 </div>
                 {showFilterBox!==0 && <div className={showFilterBox===1?styles.filterbox_show :(showFilterBox===2?styles.filterbox_hide:styles.index__filterbox)}>
                     <div className={styles.filtercon}>
@@ -82,8 +82,8 @@ class RightSearch extends Component<Props, States> {
                             ChooseMoreItem={ChooseMoreItem}/>
                         </div>
                         <div className={styles.filtercon_bottom}>
-                            <div className={styles.filtercon_bottom_reset} onClick={this.resetAll}>重置</div>
-                            <div className={styles.filtercon_bottom_ok} onClick={this.filterSubmit}>确定</div>
+                            <div className={styles.filtercon_bottom_reset} onClick={()=>this.resetAll}>重置</div>
+                            <div className={styles.filtercon_bottom_ok} onClick={()=>this.filterSubmit}>确定</div>
                         </div>
                     </div>
                 </div>}
