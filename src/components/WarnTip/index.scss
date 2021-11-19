@@ -1,0 +1,33 @@
+.warnTip {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #fffae4;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.warnContainer {
+  width: 30px;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+}
+.warnImage {
+  width: 26px;
+  height: 26px;
+}
+.warnTipTextContainer {
+  flex: 1;
+  flex-shrink: 1;
+}
+.warnTipText {
+  color: #ff8427;
+  font-size: 24px;
+  line-height: 34px;
+}
+.warnExtra {
+}
