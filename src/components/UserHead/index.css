@@ -1,0 +1,39 @@
+.userhead__container {
+  display: flex;
+  align-items: center;
+}
+
+.userhead__img__wrap {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userhead__img {
+  background-image: url(./images/userheadimg.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 80px;
+  height: 80px;
+}
+
+.userhead__name {
+  font-size: 28px;
+  color: #333333;
+  margin-left: 12px;
+}
+
+.userhead__level {
+  width: 42px;
+  height: 42px;
+  margin-left: 20px;
+  background-image: url(./images/vip.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
