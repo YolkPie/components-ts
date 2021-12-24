@@ -1,0 +1,36 @@
+.collect__container {
+  width: 210px;
+  height: 72px;
+  background-color: #e93b3d;
+  border-radius: 40px;
+  border: 1px solid #e93b3d;
+  font-size: 30px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collect__container.collected {
+  background-color: #ffffff;
+  border: 1px solid #666666;
+  color: #666666;
+}
+
+.collect__icon {
+  width: 40px;
+  height: 40px;
+  background-image: url(./images/collect.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-right: 10px;
+}
+
+.collect__container.collected .collect__icon {
+  width: 40px;
+  height: 40px;
+  background-image: url(./images/collected.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
