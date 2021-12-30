@@ -15,10 +15,15 @@ storiesOf("列表页组件|SearchBar", module)
           keyword = keyword
           alert(keyword)
     }
+    const togleShowMainPage = (togo: boolean) => {
+      
+    }
+    
 
     return <div  >
             <SearchBar 
               // ref={(ref:any) => {SearchInput = ref}}
+              togleShowMainPage={togleShowMainPage}
               searchMainList = {searchByKeyWord}  
               propkeyword={keyword}
               propsPlaceholder={'请输入搜索关键词'}

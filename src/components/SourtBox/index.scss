@@ -1,0 +1,26 @@
+.index__sourtbox {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 700px;
+  height: 350px;
+  z-index: 1050;
+}
+.sourt__ul {
+  margin: 0;
+  padding: 0px 36px 10px 36px;
+  background-color: #fff;
+  list-style: none;
+}
+.sourt__li {
+  height: 70px;
+  line-height: 70px;
+  border-top: 1px rgba(218, 218, 218, 0.4) solid;
+}
+.sourt_active {
+  height: 70px;
+  line-height: 70px;
+  border-top: 1px rgba(218, 218, 218, 0.4) solid;
+  color: rgb(242, 39, 12);
+}
