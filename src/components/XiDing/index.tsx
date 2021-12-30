@@ -54,6 +54,7 @@ interface Props {
 interface States {
     SEARCH_TAB_FIXED: boolean
 }
+let SCROLL_TOP: number = 0
 class XiDing extends Component<Props, States> {
 
     constructor(props: Props) {
@@ -63,7 +64,7 @@ class XiDing extends Component<Props, States> {
         }
         
       }
-      private SCROLL_TOP: number = 0
+      
 
       componentDidMount () {
         document.querySelector('#viewBox_S').addEventListener('scroll', this.onPageScroll.bind(this),false)
@@ -73,7 +74,7 @@ class XiDing extends Component<Props, States> {
        
        if (content) {
          const { height, top } = content.getBoundingClientRect()
-         if(this.SCROLL_TOP > top && top < -200){
+         if(SCROLL_TOP > top && top < -200){
            if(!this.state.SEARCH_TAB_FIXED){
              this.setState({
                SEARCH_TAB_FIXED: true
@@ -86,7 +87,7 @@ class XiDing extends Component<Props, States> {
              })
            }
          }
-         this.SCROLL_TOP = top
+         SCROLL_TOP = top
        }
      }
 
